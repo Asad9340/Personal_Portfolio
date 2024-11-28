@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,40 +15,60 @@ export default function Navbar() {
 
           {/* Navbar Links (center-aligned) */}
           <div className="hidden md:flex flex-grow justify-center space-x-6">
-            <Link
+            <NavLink
               to="/"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
+                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
+              }
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/about"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
+                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
+              }
             >
               About
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/services"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
+                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
+              }
             >
               Services
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/contact"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
+                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
+              }
             >
               Contact
-            </Link>
+            </NavLink>
           </div>
 
           {/* Profile Button (right-aligned) */}
           <div className="hidden md:flex items-center">
-            <Link
+            <NavLink
               to="/profile"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
+                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
+              }
             >
               Profile
-            </Link>
+            </NavLink>
           </div>
 
           {/* Hamburger Menu for Mobile */}
@@ -86,36 +106,56 @@ export default function Navbar() {
         }`}
       >
         <div className="space-y-2 p-4">
-          <Link
+          <NavLink
             to="/"
-            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-secondary"
+            className={({ isActive }) =>
+              isActive
+                ? 'block text-white py-2 px-4 rounded transition duration-200 border-b-2 border-secondary'
+                : 'block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-transparent'
+            }
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/about"
-            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-secondary"
+            className={({ isActive }) =>
+              isActive
+                ? 'block text-white py-2 px-4 rounded transition duration-200 border-b-2 border-secondary'
+                : 'block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-transparent'
+            }
           >
             About
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/services"
-            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-secondary"
+            className={({ isActive }) =>
+              isActive
+                ? 'block text-white py-2 px-4 rounded transition duration-200 border-b-2 border-secondary'
+                : 'block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-transparent'
+            }
           >
             Services
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/contact"
-            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-secondary"
+            className={({ isActive }) =>
+              isActive
+                ? 'block text-white py-2 px-4 rounded transition duration-200 border-b-2 border-secondary'
+                : 'block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-transparent'
+            }
           >
             Contact
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/profile"
-            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200"
+            className={({ isActive }) =>
+              isActive
+                ? 'block text-white py-2 px-4 rounded transition duration-200 border-b-2 border-secondary'
+                : 'block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200'
+            }
           >
             Profile
-          </Link>
+          </NavLink>
         </div>
       </div>
     </nav>

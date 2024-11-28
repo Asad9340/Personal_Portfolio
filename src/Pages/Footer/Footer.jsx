@@ -38,6 +38,7 @@ export default function Footer() {
           <div className="flex justify-center space-x-8">
             <Link
               to="https://www.facebook.com/asad9340"
+              target="_blank"
               className="flex items-center hover:text-white transition space-x-2"
             >
               <FaFacebookF />
@@ -45,6 +46,7 @@ export default function Footer() {
             </Link>
             <Link
               to="https://www.linkedin.com/in/asad9340/"
+              target="_blank"
               className="flex items-center hover:text-white transition space-x-2"
             >
               <FaLinkedinIn />
@@ -52,6 +54,7 @@ export default function Footer() {
             </Link>
             <Link
               to="https://github.com/Asad9340"
+              target="_blank"
               className="flex items-center hover:text-white transition space-x-2"
             >
               <FaGithub />
