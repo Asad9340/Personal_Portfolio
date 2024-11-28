@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +10,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo (left-aligned) */}
           <div className="flex-shrink-0">
-            <img className='w-32' src="/src/assets/logo.png" alt="" />
+            <Link to="/">
+              <img className="w-32" src="/src/assets/logo.png" alt="" />
+            </Link>
           </div>
 
           {/* Navbar Links (center-aligned) */}

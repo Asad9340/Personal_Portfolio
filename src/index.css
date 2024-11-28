@@ -4,19 +4,19 @@
 
 @font-face {
   font-family: 'typeWritter';
-  src: url('/public/fonts/typewritter.ttf') format('truetype');
+  src: url('/fonts/typewritter.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Manrope';
-  src: url('/public/fonts/Manrope.ttf') format('truetype');
+  src: url('/fonts/Manrope.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Lexend';
-  src: url('/public/fonts/Lexend.ttf') format('truetype');
+  src: url('/fonts/Lexend.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
