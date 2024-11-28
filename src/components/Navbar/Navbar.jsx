@@ -5,7 +5,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-primary text-secondary font-typeWritter">
+    <nav className="bg-primary text-secondary font-manrope">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo (left-aligned) */}
@@ -17,25 +17,25 @@ export default function Navbar() {
           <div className="hidden md:flex flex-grow justify-center space-x-6">
             <Link
               to="/"
-              className="text-secondary hover:text-gray-300 py-2 px-4 rounded"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-secondary hover:text-gray-300 py-2 px-4 rounded"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
             >
               About
             </Link>
             <Link
               to="/services"
-              className="text-secondary hover:text-gray-300 py-2 px-4 rounded"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
             >
               Services
             </Link>
             <Link
               to="/contact"
-              className="text-secondary hover:text-gray-300 py-2 px-4 rounded"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
             >
               Contact
             </Link>
@@ -45,7 +45,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center">
             <Link
               to="/profile"
-              className="text-secondary hover:text-gray-300 py-2 px-4 rounded"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
             >
               Profile
             </Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className="text-secondary hover:text-gray-300"
+              className="text-secondary hover:text-white"
               onClick={() => setIsOpen(!isOpen)}
             >
               <svg
@@ -80,35 +80,39 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
-        <div className="space-y-4 bg-primary p-4">
+      <div
+        className={`absolute top-16 left-0 w-full bg-primary shadow-lg transition-all duration-300 ${
+          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        <div className="space-y-2 p-4">
           <Link
             to="/"
-            className="block text-secondary hover:text-gray-300 py-2 px-4 rounded"
+            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-secondary"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="block text-secondary hover:text-gray-300 py-2 px-4 rounded"
+            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-secondary"
           >
             About
           </Link>
           <Link
             to="/services"
-            className="block text-secondary hover:text-gray-300 py-2 px-4 rounded"
+            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-secondary"
           >
             Services
           </Link>
           <Link
             to="/contact"
-            className="block text-secondary hover:text-gray-300 py-2 px-4 rounded"
+            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200 border-b border-secondary"
           >
             Contact
           </Link>
           <Link
             to="/profile"
-            className="block text-secondary hover:text-gray-300 py-2 px-4 rounded"
+            className="block text-secondary hover:bg-gray-700 hover:text-white py-2 px-4 rounded transition duration-200"
           >
             Profile
           </Link>
