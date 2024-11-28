@@ -10,7 +10,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo (left-aligned) */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold">MyLogo</h1>
+            <img className='w-32' src="/src/assets/logo.png" alt="" />
           </div>
 
           {/* Navbar Links (center-aligned) */}
