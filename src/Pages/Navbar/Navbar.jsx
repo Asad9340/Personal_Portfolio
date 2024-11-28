@@ -17,25 +17,25 @@ export default function Navbar() {
           <div className="hidden md:flex flex-grow justify-center space-x-6">
             <Link
               to="/"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary"
             >
               About
             </Link>
             <Link
               to="/services"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary"
             >
               Services
             </Link>
             <Link
               to="/contact"
-              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-200"
+              className="text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary"
             >
               Contact
             </Link>
