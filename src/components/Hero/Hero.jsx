@@ -4,6 +4,9 @@ import Typewriter from 'typewriter-effect';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { SiLinkedin } from 'react-icons/si';
 import { BsWhatsapp } from 'react-icons/bs';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 const Hero = () => {
   return (
     <section className="bg-[#010127] banner-container">
@@ -42,7 +45,13 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="button font-lexend flex gap-2 items-center">
+                  <button
+                    data-aos="zoom-in"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    className="button font-lexend flex gap-2 items-center"
+                  >
                     <FaGithub /> Github
                   </button>
                 </a>
@@ -52,7 +61,13 @@ const Hero = () => {
                   href="/CV_Resume/Asadul's Resume.pdf"
                   download="Asadul_Resume.pdf"
                 >
-                  <button className="Download-button">
+                  <button
+                    data-aos="zoom-in"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    className="Download-button"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="16"
@@ -80,7 +95,13 @@ const Hero = () => {
                     href="https://www.linkedin.com/in/asad9340/"
                     target="_blank"
                   >
-                    <li className="icon linkedin">
+                    <li
+                      data-aos="fade-right"
+                      data-aos-delay="250"
+                      data-aos-duration="1500"
+                      data-aos-easing="ease-in-out"
+                      className="icon linkedin"
+                    >
                       <span className="tooltip">LinkedIn</span>
                       <SiLinkedin />
                     </li>
@@ -90,7 +111,13 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <li className="icon facebook">
+                    <li
+                      data-aos="fade-down"
+                      data-aos-delay="250"
+                      data-aos-duration="1500"
+                      data-aos-easing="ease-in-out"
+                      className="icon facebook"
+                    >
                       <span className="tooltip">Facebook</span>
                       <FaFacebookF />
                     </li>
@@ -100,7 +127,13 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <li className="icon twitter">
+                    <li
+                      data-aos="fade-up"
+                      data-aos-delay="250"
+                      data-aos-duration="1500"
+                      data-aos-easing="ease-in-out"
+                      className="icon twitter"
+                    >
                       <span className="tooltip">Twitter</span>
                       <RiTwitterXFill />
                     </li>
@@ -110,7 +143,13 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <li className="icon whatsapp">
+                    <li
+                      data-aos="fade-left"
+                      data-aos-delay="250"
+                      data-aos-duration="1500"
+                      data-aos-easing="ease-in-out"
+                      className="icon whatsapp"
+                    >
                       <span className="tooltip">WhatsApp</span>
                       <BsWhatsapp />
                     </li>
