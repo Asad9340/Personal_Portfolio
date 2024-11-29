@@ -1,6 +1,8 @@
-import { FaGithub } from 'react-icons/fa';
+import { FaFacebookF, FaGithub } from 'react-icons/fa';
 import './Hero.css';
 import Typewriter from 'typewriter-effect';
+import { RiTwitterXFill } from 'react-icons/ri';
+import { SiLinkedin } from 'react-icons/si';
 const Hero = () => {
   return (
     <section className="bg-[#010127] banner-container">
@@ -16,12 +18,16 @@ const Hero = () => {
                 <span className="text-[#DC143C] font-bold"> I</span>slam
               </span>
             </h3>
-            <h3 className="my-4 flex items-center gap-4">
-              A Front-End{' '}
+            <h3 className="my-4 flex items-center gap-4 text-2xl">
+              A Passionate{' '}
               <span className="text-5xl font-bold font-typeWritter flex">
                 <Typewriter
                   options={{
-                    strings: ['Web Developer', 'Problem Solver'],
+                    strings: [
+                      'Web Developer',
+                      'Problem Solver',
+                      'MERN Developer',
+                    ],
                     autoStart: true,
                     loop: true,
                   }}
@@ -30,43 +36,67 @@ const Hero = () => {
             </h3>
             <div className="flex gap-3 lg:gap-4">
               <div>
-                <button className="button font-lexend flex gap-2 items-center">
-                  <FaGithub /> Github
-                </button>
+                <a
+                  href="http://github.com/asad9340"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="button font-lexend flex gap-2 items-center">
+                    <FaGithub /> Github
+                  </button>
+                </a>
               </div>
               <div>
-                <button className="Download-button">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    width="20"
-                    viewBox="0 0 640 512"
-                  >
-                    <path
-                      d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z"
-                      fill="white"
-                    ></path>
-                  </svg>
-                  <span>RESUME</span>
-                </button>
+                <a
+                  href="/CV_Resume/Asadul's Resume.pdf"
+                  download="Asadul_Resume.pdf"
+                >
+                  <button className="Download-button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="16"
+                      width="20"
+                      viewBox="0 0 640 512"
+                    >
+                      <path
+                        d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z"
+                        fill="white"
+                      ></path>
+                    </svg>
+                    <span>RESUME</span>
+                  </button>
+                </a>
               </div>
             </div>
             <div className="mt-4 flex gap-3 text-2xl">
-              <button className="hover:text-blue-800">
-                <a href="https://www.facebook.com/asad9340" target="_blank">
-                  <i className="fa-brands fa-square-facebook"></i>
-                </a>
-              </button>
-              <button className="hover:text-[#0A66C2]">
+              <ul className="wrapper">
                 <a href="https://www.linkedin.com/in/asad9340/" target="_blank">
-                  <i className="fa-brands fa-linkedin"></i>
+                  <li className="icon linkedin">
+                    <span className="tooltip">LinkedIn</span>
+                    <SiLinkedin />
+                  </li>
                 </a>
-              </button>
-              <button className="hover:text-[#1A8CD8]">
-                <a href="https://twitter.com/asad9340" target="_blank">
-                  <i className="fa-brands fa-square-x-twitter"></i>
+                <a
+                  href="https://www.facebook.com/asad9340"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <li className="icon facebook">
+                    <span className="tooltip">Facebook</span>
+                    <FaFacebookF />
+                  </li>
                 </a>
-              </button>
+                <a
+                  href="https://x.com/asad9340"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <li className="icon twitter">
+                    <span className="tooltip">Twitter</span>
+                    <RiTwitterXFill />
+                  </li>
+                </a>
+              </ul>
             </div>
           </div>
           <div className="items-end mt-6 mb-10">
