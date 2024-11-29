@@ -3,6 +3,7 @@ import './Hero.css';
 import Typewriter from 'typewriter-effect';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { SiLinkedin } from 'react-icons/si';
+import { BsWhatsapp } from 'react-icons/bs';
 const Hero = () => {
   return (
     <section className="bg-[#010127] banner-container">
@@ -68,34 +69,53 @@ const Hero = () => {
                 </a>
               </div>
             </div>
-            <div className="mt-4 flex gap-3 text-2xl">
-              <ul className="wrapper">
-                <a href="https://www.linkedin.com/in/asad9340/" target="_blank">
-                  <li className="icon linkedin">
-                    <span className="tooltip">LinkedIn</span>
-                    <SiLinkedin />
-                  </li>
-                </a>
-                <a
-                  href="https://www.facebook.com/asad9340"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <li className="icon facebook">
-                    <span className="tooltip">Facebook</span>
-                    <FaFacebookF />
-                  </li>
-                </a>
-                <a
-                  href="https://x.com/asad9340"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <li className="icon twitter">
-                    <span className="tooltip">Twitter</span>
-                    <RiTwitterXFill />
-                  </li>
-                </a>
+            <div className="mt-4 flex flex-col gap-3 text-2xl">
+              <ul className="wrapper flex-col">
+                <p className="text-lg mb-2">
+                  Let&apos;<span className="text-[#DC143C] font-bold">s </span>
+                  connect on:
+                </p>
+                <div className="flex gap-1">
+                  <a
+                    href="https://www.linkedin.com/in/asad9340/"
+                    target="_blank"
+                  >
+                    <li className="icon linkedin">
+                      <span className="tooltip">LinkedIn</span>
+                      <SiLinkedin />
+                    </li>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/asad9340"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <li className="icon facebook">
+                      <span className="tooltip">Facebook</span>
+                      <FaFacebookF />
+                    </li>
+                  </a>
+                  <a
+                    href="https://x.com/asad9340"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <li className="icon twitter">
+                      <span className="tooltip">Twitter</span>
+                      <RiTwitterXFill />
+                    </li>
+                  </a>
+                  <a
+                    href="https://wa.me/8801770070538"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <li className="icon whatsapp">
+                      <span className="tooltip">WhatsApp</span>
+                      <BsWhatsapp />
+                    </li>
+                  </a>
+                </div>
               </ul>
             </div>
           </div>

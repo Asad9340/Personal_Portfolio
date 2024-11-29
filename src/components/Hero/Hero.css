@@ -137,7 +137,7 @@
   list-style: none;
   height: 120px;
   width: 100%;
-  padding-top: 30px;
+  /* padding-top: 30px; */
 }
 
 .wrapper .icon {
@@ -145,10 +145,10 @@
   background: #fff;
   color: blue;
   border-radius: 50%;
-  margin: 10px;
+  margin: 5px;
   width: 50px;
   height: 50px;
-  font-size: 18px;
+  /* font-size: 18px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,11 +160,11 @@
 
 .wrapper .tooltip {
   position: absolute;
-  top: 0;
+  bottom: 0;
   font-size: 14px;
   background: #fff;
   color: #fff;
-  padding: 5px 8px;
+  padding: 2px 8px;
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
@@ -178,14 +178,14 @@
   height: 8px;
   width: 8px;
   background: #fff;
-  bottom: -3px;
+  top: -3px;
   left: 50%;
   transform: translate(-50%) rotate(45deg);
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .wrapper .icon:hover .tooltip {
-  top: -45px;
+  bottom: -45px;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -213,6 +213,12 @@
 .wrapper .linkedin:hover,
 .wrapper .linkedin:hover .tooltip,
 .wrapper .linkedin:hover .tooltip::before {
+  background: #0A66C2;
+  color: #fff;
+}
+.wrapper .whatsapp:hover,
+.wrapper .whatsapp:hover .tooltip,
+.wrapper .whatsapp:hover .tooltip::before {
   background: #0A66C2;
   color: #fff;
 }
