@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll'; // Import Link from react-scroll
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RxCross1 } from 'react-icons/rx';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState(''); // Track active link
   const menuRef = useRef(null);
 
   const closeMenu = () => setIsOpen(false);
@@ -32,81 +33,127 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  // Handle click on navigation items to set active link
+  const handleLinkClick = link => {
+    setActiveLink(link); // Set active link when clicked
+  };
+
   return (
-    <nav className="bg-primary text-secondary font-manrope">
+    <nav className="bg-primary text-secondary font-manrope sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Logo (left-aligned) */}
           <div className="flex-shrink-0">
-            <Link to="/">
+            <Link
+              to="/"
+              smooth
+              duration={500}
+              onClick={() => handleLinkClick('')}
+            >
               <img className="w-32" src="/src/assets/logo.png" alt="Logo" />
             </Link>
           </div>
 
-          {/* Navbar Links */}
+          {/* Navbar Links (center-aligned) */}
           <div className="hidden md:flex flex-grow justify-center space-x-6">
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
-                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
-              }
+            <Link
+              to="about"
+              smooth
+              duration={500}
+              spy
+              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500  md:hover:border-b-2 md:hover:border-secondary ${
+                activeLink === 'about'
+                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
+                  : ''
+              }`}
+              offset={-70}
+              onClick={() => handleLinkClick('about')}
             >
               About
-            </NavLink>
-            <NavLink
-              to="/projects"
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
-                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
-              }
+            </Link>
+            <Link
+              to="projects"
+              smooth
+              duration={500}
+              spy
+              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
+                activeLink === 'projects'
+                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
+                  : ''
+              }`}
+              offset={-70}
+              onClick={() => handleLinkClick('projects')}
             >
               Projects
-            </NavLink>
-            <NavLink
-              to="/services"
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
-                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
-              }
+            </Link>
+            <Link
+              to="services"
+              smooth
+              duration={500}
+              spy
+              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
+                activeLink === 'services'
+                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
+                  : ''
+              }`}
+              offset={-70}
+              onClick={() => handleLinkClick('services')}
             >
               Services
-            </NavLink>
-            <NavLink
-              to="/blog"
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
-                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
-              }
+            </Link>
+            <Link
+              to="blog"
+              smooth
+              duration={500}
+              spy
+              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
+                activeLink === 'blog'
+                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
+                  : ''
+              }`}
+              offset={-70}
+              onClick={() => handleLinkClick('blog')}
             >
               Blog
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary'
-                  : 'text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent hover:border-secondary'
-              }
+            </Link>
+            <Link
+              to="contact"
+              smooth
+              duration={500}
+              spy
+              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
+                activeLink === 'contact'
+                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
+                  : ''
+              }`}
+              offset={-70}
+              onClick={() => handleLinkClick('contact')}
             >
               Contact
-            </NavLink>
+            </Link>
           </div>
 
-          {/* Hire Me Button */}
+          {/* Hire Me Button (right-aligned) */}
           <div className="hidden md:flex items-center">
             <Link to="/hire-me">
-              <button className="button font-lexend">
+              <button
+                data-aos="zoom-in"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+                className="button font-lexend"
+              >
                 Hire <span className="text-red-500">M</span>e
               </button>
             </Link>
           </div>
 
-          {/* Hamburger Menu */}
+          {/* Hamburger Menu for Mobile */}
           <div className="md:hidden flex items-center">
             <button
               type="button"
@@ -125,7 +172,6 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        ref={menuRef}
         className={`absolute top-14 left-0 mx-8 py-2 w-[calc(100%-64px)] rounded-md bg-[#111827] shadow-lg transition-all duration-300 z-50 ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
@@ -133,50 +179,73 @@ export default function Navbar() {
         <div className="space-y-2 p-4">
           <ul className="space-y-2">
             <li>
-              <NavLink
-                to="/about"
+              <Link
+                to="about"
+                smooth
+                duration={500}
+                spy
+                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
                 className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                offset={-70}
+                onClick={() => handleLinkClick('about')}
               >
                 About
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
-                to="/projects"
+              <Link
+                to="projects"
+                smooth
+                duration={500}
+                spy
+                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
                 className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                offset={-70}
+                onClick={() => handleLinkClick('projects')}
               >
                 Projects
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
-                to="/services"
+              <Link
+                to="services"
+                smooth
+                duration={500}
+                spy
+                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
                 className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                offset={-70}
+                onClick={() => handleLinkClick('services')}
               >
                 Services
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
-                to="/blog"
+              <Link
+                to="blog"
+                smooth
+                duration={500}
+                spy
+                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
                 className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                offset={-70}
+                onClick={() => handleLinkClick('blog')}
               >
                 Blog
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
-                to="/contact"
+              <Link
+                to="contact"
+                smooth
+                duration={500}
+                spy
+                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
                 className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                offset={-70}
+                onClick={() => handleLinkClick('contact')}
               >
                 Contact
-              </NavLink>
-            </li>
-            <li>
-              <Link to="/hire-me">
-                <button className="button font-lexend">
-                  Hire <span className="text-red-500">M</span>e
-                </button>
               </Link>
             </li>
           </ul>

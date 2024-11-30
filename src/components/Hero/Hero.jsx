@@ -52,7 +52,21 @@ const Hero = () => {
                     data-aos-easing="ease-in-out"
                     className="button font-lexend flex gap-2 items-center"
                   >
-                    <FaGithub /> Github
+                    <FaGithub
+                      data-aos="fade-right"
+                      data-aos-delay="50"
+                      data-aos-duration="1000"
+                      data-aos-easing="ease-in-out"
+                    />{' '}
+                    <span
+                      data-aos="fade-left"
+                      data-aos-delay="50"
+                      data-aos-duration="1000"
+                      data-aos-easing="ease-in-out"
+                    >
+                      {' '}
+                      Github
+                    </span>
                   </button>
                 </a>
               </div>
@@ -96,14 +110,19 @@ const Hero = () => {
                     target="_blank"
                   >
                     <li
-                      data-aos="fade-right"
-                      data-aos-delay="250"
-                      data-aos-duration="1500"
+                      data-aos="zoom-in"
+                      data-aos-delay="50"
+                      data-aos-duration="1000"
                       data-aos-easing="ease-in-out"
                       className="icon linkedin"
                     >
                       <span className="tooltip">LinkedIn</span>
-                      <SiLinkedin />
+                      <SiLinkedin
+                        data-aos="fade-right"
+                        data-aos-delay="250"
+                        data-aos-duration="1500"
+                        data-aos-easing="ease-in-out"
+                      />
                     </li>
                   </a>
                   <a
@@ -112,14 +131,19 @@ const Hero = () => {
                     rel="noopener noreferrer"
                   >
                     <li
-                      data-aos="fade-down"
-                      data-aos-delay="250"
-                      data-aos-duration="1500"
+                      data-aos="zoom-in"
+                      data-aos-delay="50"
+                      data-aos-duration="1000"
                       data-aos-easing="ease-in-out"
                       className="icon facebook"
                     >
                       <span className="tooltip">Facebook</span>
-                      <FaFacebookF />
+                      <FaFacebookF
+                        data-aos="fade-down"
+                        data-aos-delay="250"
+                        data-aos-duration="1500"
+                        data-aos-easing="ease-in-out"
+                      />
                     </li>
                   </a>
                   <a
@@ -128,14 +152,19 @@ const Hero = () => {
                     rel="noopener noreferrer"
                   >
                     <li
-                      data-aos="fade-up"
-                      data-aos-delay="250"
-                      data-aos-duration="1500"
+                      data-aos="zoom-in"
+                      data-aos-delay="50"
+                      data-aos-duration="1000"
                       data-aos-easing="ease-in-out"
                       className="icon twitter"
                     >
                       <span className="tooltip">Twitter</span>
-                      <RiTwitterXFill />
+                      <RiTwitterXFill
+                        data-aos="fade-up"
+                        data-aos-delay="250"
+                        data-aos-duration="1500"
+                        data-aos-easing="ease-in-out"
+                      />
                     </li>
                   </a>
                   <a
@@ -144,14 +173,19 @@ const Hero = () => {
                     rel="noopener noreferrer"
                   >
                     <li
-                      data-aos="fade-left"
-                      data-aos-delay="250"
-                      data-aos-duration="1500"
+                      data-aos="zoom-in"
+                      data-aos-delay="50"
+                      data-aos-duration="1000"
                       data-aos-easing="ease-in-out"
                       className="icon whatsapp"
                     >
                       <span className="tooltip">WhatsApp</span>
-                      <BsWhatsapp />
+                      <BsWhatsapp
+                        data-aos="fade-left"
+                        data-aos-delay="250"
+                        data-aos-duration="1500"
+                        data-aos-easing="ease-in-out"
+                      />
                     </li>
                   </a>
                 </div>
