@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import AboutMe from '../../components/AboutMe/AboutMe';
+import EducationDetails from '../../components/EducationDetails/EducationDetails';
 // import 'react-tabs/style/react-tabs.css';
 function About() {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <div className="max-w-6xl mx-auto">
       <Tabs>
-        <TabList className="grid gap-8 md:gap-14 grid-flow-col text-center text-gray-500 bg-gray-200 rounded-full p-2 max-w-3xl mx-3 md:mx-auto">
+        <TabList className="grid gap-2 grid-flow-col text-center text-gray-500 bg-gray-200 rounded-full p-2 max-w-3xl mx-3 md:mx-auto">
           <Tab
             onClick={() => setActiveTab(0)}
             default={true}
@@ -35,7 +36,7 @@ function About() {
           <AboutMe/>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <EducationDetails/>
         </TabPanel>
       </Tabs>
     </div>

@@ -35,7 +35,7 @@ function AboutMe() {
                 <button className="cssbuttons-io-button">
                   Download CV
                   <div className="icon">
-                    <LuDownload />
+                    <LuDownload color='white' />
                   </div>
                 </button>
               </a>
