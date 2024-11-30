@@ -13,6 +13,12 @@ const EducationSSC = () => {
             />
           </div>
           <div className="p-5 rounded-2xl w-full bg-[#F7F9FB] flex flex-col justify-center">
+            <div>
+              <h2 className="pl-1 rounded-2xl bg-white bg-clip-border shadow-3xl shadow-shadow-500 font-semibold  mb-6 pb-3 pt-2 px-6 text-3xl text-center">
+                Academic Level:{' '}
+                <span className="text-[#DC143C] font-bold">S</span>SC
+              </h2>
+            </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
                 <p className="text-sm text-gray-600">Education</p>

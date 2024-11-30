@@ -1,25 +1,62 @@
-
+import { LuDownload } from 'react-icons/lu';
 const EducationHonours = () => {
   return (
-    <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden p-6 w-full h-full">
-      <div className="md:w-2/3 pr-4 mb-4 md:mb-0">
-        <h2 className="text-2xl font-semibold mb-2">University Name</h2>
-        <p className="text-lg font-medium text-gray-700 mb-4">
-          Result: First Class
-        </p>
-        <p className="text-md text-gray-600 mb-2">
-          Course: Honours in Computer Science
-        </p>
-        <p className="text-md text-gray-600 mb-2">Year: 2025</p>
-        <p className="text-md text-gray-600 mb-2">Duration: 4 Years</p>
-        <p className="text-md text-gray-600 mb-2">Location: City, State</p>
-      </div>
-      <div className="md:w-1/3">
-        <img
-          src="https://via.placeholder.com/300"
-          alt="University"
-          className="w-full h-full object-cover rounded-lg"
-        />
+    <div className="grid">
+      <div className="bg-white rounded-md shadow-lg">
+        <div className="md:flex gap-8 m-4 mx-auto w-full">
+          <div className="flex-none">
+            <img
+              src="/src/assets/Honours.jpg"
+              alt="school-image"
+              className="rounded-md transform w-full h-[250px] md:h-[380px] md:w-80 object-cover  border-4 border-gray-300 shadow-lg"
+            />
+          </div>
+          <div className="p-5 rounded-2xl w-full bg-[#F7F9FB] flex flex-col justify-center">
+            <div>
+              <h2 className="pl-1 rounded-2xl bg-white bg-clip-border shadow-3xl shadow-shadow-500 font-semibold  mb-6 pb-3 pt-2 px-6 text-3xl text-center">
+                Academic Level:{' '}
+                <span className="text-[#DC143C] font-bold">H</span>onours
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
+                <p className="text-sm text-gray-600">Education</p>
+                <p className="text-base font-medium text-navy-700">
+                  Mawlana Bhashani Science and Technology University
+                </p>
+              </div>
+
+              <div className="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                <p className="text-sm text-gray-600">Department</p>
+                <p className="text-base font-medium text-navy-700">
+                  Information and Communication Technology
+                </p>
+              </div>
+
+              <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                <p className="text-sm text-gray-600">Result</p>
+                <p className="text-base font-medium text-navy-700">Grade:...</p>
+              </div>
+
+              <div className="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                <p className="text-sm text-gray-600">Passing Year</p>
+                <p className="text-base font-medium text-navy-700">
+                  2020- Present
+                </p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <a href="/CV_Resume/Asadul's CV.pdf" download="Asadul's CV.pdf">
+                <button className="cssbuttons-io-button">
+                  Download Certificate
+                  <div className="icon">
+                    <LuDownload color="white" />
+                  </div>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
