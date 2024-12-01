@@ -5,7 +5,7 @@ const EducationSSC = () => {
     <div className="grid">
       <div className="bg-white rounded-md shadow-lg">
         <div className="md:grid grid-cols-9 gap-8 m-4 mx-auto">
-          <div className='col-span-3'>
+          <div className="col-span-3">
             <img
               src="/src/assets/SSC.jpg"
               alt="school-image"
@@ -19,8 +19,8 @@ const EducationSSC = () => {
                 <span className="text-[#DC143C] font-bold">S</span>SC
               </h2>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex flex-col  justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
                 <p className="text-sm text-gray-600">Education</p>
                 <p className="text-base font-medium text-navy-700">
                   Momena Ali Science School
@@ -32,7 +32,7 @@ const EducationSSC = () => {
                 <p className="text-base font-medium text-navy-700">Science</p>
               </div>
 
-              <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+              <div className="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                 <p className="text-sm text-gray-600">Result</p>
                 <p className="text-base font-medium text-navy-700">Grade: A+</p>
               </div>
@@ -42,8 +42,11 @@ const EducationSSC = () => {
                 <p className="text-base font-medium text-navy-700">2016</p>
               </div>
             </div>
-            <div className="mt-4">
-              <a href="/CV_Resume/Asadul's CV.pdf" download="Asadul's CV.pdf">
+            <div className="mt-4 flex justify-center items-center">
+              <a
+                href="/Certificate/SSC Certificate.jpg"
+                download="SSC Certificate.jpg"
+              >
                 <button className="cssbuttons-io-button">
                   Download Certificate
                   <div className="icon">

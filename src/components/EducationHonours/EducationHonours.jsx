@@ -19,7 +19,7 @@ const EducationHonours = () => {
               </h2>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
+              <div className="flex flex-col  justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
                 <p className="text-sm text-gray-600">Education</p>
                 <p className="text-base font-medium text-navy-700">
                   Mawlana Bhashani Science and Technology University
@@ -33,7 +33,7 @@ const EducationHonours = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+              <div className="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                 <p className="text-sm text-gray-600">Result</p>
                 <p className="text-base font-medium text-navy-700">Grade:...</p>
               </div>
@@ -45,7 +45,7 @@ const EducationHonours = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-4">
+            <div className="mt-4 flex justify-center items-center">
               <a href="/CV_Resume/Asadul's CV.pdf" download="Asadul's CV.pdf">
                 <button className="cssbuttons-io-button">
                   Download Certificate
