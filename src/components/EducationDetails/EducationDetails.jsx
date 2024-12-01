@@ -23,7 +23,7 @@ export default function EducationDetails() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 600000,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         pagination={{
