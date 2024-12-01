@@ -1,6 +1,5 @@
 import Hero from '../../components/Hero/Hero';
 import About from '../About/About';
-
 function Home() {
   return (
     <div>

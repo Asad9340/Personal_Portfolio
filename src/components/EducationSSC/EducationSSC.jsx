@@ -4,15 +4,15 @@ const EducationSSC = () => {
   return (
     <div className="grid">
       <div className="bg-white rounded-md shadow-lg">
-        <div className="md:flex gap-8 m-4 mx-auto w-full">
-          <div className="flex-none">
+        <div className="md:grid grid-cols-9 gap-8 m-4 mx-auto">
+          <div className='col-span-3'>
             <img
-              src="/src/assets/ssc.jpg"
+              src="/src/assets/SSC.jpg"
               alt="school-image"
-              className="rounded-md transform w-full h-[250px] md:h-[380px] md:w-80 object-cover  border-4 border-gray-300 shadow-lg"
+              className="rounded-xl transform w-36 h-full mb-4 md:mb-0 object-cover  border-4 border-gray-300 shadow-lg"
             />
           </div>
-          <div className="p-5 rounded-2xl w-full bg-[#F7F9FB] flex flex-col justify-center">
+          <div className="col-span-6 p-5 rounded-2xl w-full bg-[#F7F1FB] flex flex-col justify-center">
             <div>
               <h2 className="pl-1 rounded-2xl bg-white bg-clip-border shadow-3xl shadow-shadow-500 font-semibold  mb-6 pb-3 pt-2 px-6 text-3xl text-center">
                 Academic Level:{' '}

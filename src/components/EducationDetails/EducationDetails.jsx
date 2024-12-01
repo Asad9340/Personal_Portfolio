@@ -1,55 +1,55 @@
-import  { useState } from 'react';
+import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import './EducationDetails.css'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-// Import required modules
-import { Mousewheel, Pagination } from 'swiper/modules';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import EducationSSC from '../EducationSSC/EducationSSC';
 import EducationHSC from '../EducationHSC/EducationHSC';
 import EducationHonours from '../EducationHonours/EducationHonours';
 
-const EducationDetails = () => {
-  const [mousewheelEnabled, setMousewheelEnabled] = useState(true); // State to control mousewheel
-
-  const handleSlideChange = swiper => {
-    // Disable mousewheel on the first or last slide
-    if (
-      swiper.activeIndex === 0 ||
-      swiper.activeIndex === swiper.slides.length - 1
-    ) {
-      setMousewheelEnabled(false);
-    } else {
-      setMousewheelEnabled(true);
-    }
+export default function EducationDetails() {
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s, time, progress) => {
+    progressCircle.current.style.setProperty('--progress', 1 - progress);
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
-
   return (
-    <div className="h-full md:h-[400px] my-6 md:my-12 bg-gray-100 flex items-center justify-center">
+    <>
       <Swiper
-        direction={'vertical'}
-        slidesPerView={1}
         spaceBetween={30}
-        mousewheel={mousewheelEnabled} // Use state to control mousewheel
+        centeredSlides={true}
+        autoplay={{
+          delay: 6000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
-        modules={[Mousewheel, Pagination]}
-        className="w-full h-full"
-        onSlideChange={handleSlideChange}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        onAutoplayTimeLeft={onAutoplayTimeLeft}
+        className="mySwiper"
       >
-        <SwiperSlide className="flex items-center justify-center bg-white text-xl font-semibold rounded-lg">
+        <SwiperSlide>
           <EducationSSC/>
         </SwiperSlide>
-        <SwiperSlide className="flex items-center justify-center bg-white text-xl font-semibold rounded-lg">
+        <SwiperSlide>
           <EducationHSC/>
         </SwiperSlide>
-        <SwiperSlide className="flex items-center justify-center bg-white text-xl font-semibold rounded-lg">
+        <SwiperSlide>
           <EducationHonours/>
         </SwiperSlide>
+        <div className="autoplay-progress" slot="container-end">
+          <svg viewBox="0 0 48 48" ref={progressCircle}>
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span ref={progressContent}></span>
+        </div>
       </Swiper>
-    </div>
+    </>
   );
-};
-
-export default EducationDetails;
+}
