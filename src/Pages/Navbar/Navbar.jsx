@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-scroll'; // Import Link from react-scroll
+import { Link } from 'react-scroll';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RxCross1 } from 'react-icons/rx';
-
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 export default function Navbar() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState(''); // Track active link
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState('');
   const menuRef = useRef(null);
 
   const closeMenu = () => setIsOpen(false);
@@ -35,10 +38,12 @@ export default function Navbar() {
 
   // Handle click on navigation items to set active link
   const handleLinkClick = link => {
-    const currentPath = window.location.pathname;
-
+    const currentPath = location.pathname;
     if (currentPath !== '/') {
-      window.location.href = '/';
+      const data = (location.state = link);
+      navigate('/');
+      setActiveLink('');
+      setActiveLink(data);
     } else {
       setActiveLink(link);
     }
