@@ -35,7 +35,13 @@ export default function Navbar() {
 
   // Handle click on navigation items to set active link
   const handleLinkClick = link => {
-    setActiveLink(link); // Set active link when clicked
+    const currentPath = window.location.pathname;
+
+    if (currentPath !== '/') {
+      window.location.href = '/';
+    } else {
+      setActiveLink(link);
+    }
   };
 
   return (
@@ -80,8 +86,8 @@ export default function Navbar() {
               duration={500}
               spy
               activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
-                activeLink === 'projects'
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 md:hover:border-b-2 md:hover:border-secondary ${
+                activeLink === 'skills'
                   ? 'text-white py-2 px-4 border-b-2 border-secondary'
                   : ''
               }`}
@@ -96,7 +102,7 @@ export default function Navbar() {
               duration={500}
               spy
               activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500  md:hover:border-b-2 md:hover:border-secondary ${
                 activeLink === 'projects'
                   ? 'text-white py-2 px-4 border-b-2 border-secondary'
                   : ''
@@ -112,7 +118,7 @@ export default function Navbar() {
               duration={500}
               spy
               activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 md:hover:border-b-2 md:hover:border-secondary ${
                 activeLink === 'blog'
                   ? 'text-white py-2 px-4 border-b-2 border-secondary'
                   : ''
@@ -128,7 +134,7 @@ export default function Navbar() {
               duration={500}
               spy
               activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 md:hover:border-b-2 md:hover:border-secondary ${
                 activeLink === 'contact'
                   ? 'text-white py-2 px-4 border-b-2 border-secondary'
                   : ''
