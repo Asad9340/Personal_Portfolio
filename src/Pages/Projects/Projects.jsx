@@ -1,83 +1,46 @@
 import './Projects.css';
 const Projects = () => {
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full px-4">
-          <div className="relative group">
-            <div className="relative w-full h-48 bg-gray-800 overflow-hidden rounded-t-xl shadow-lg">
-              <img
-                src="https://via.placeholder.com/400x200"
-                alt="Project Image"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-
-            <div className="relative bg-gradient-to-r from-gray-800 to-gray-700 rounded-b-xl shadow-lg px-6 py-8 -mt-12 z-10">
-              <h3 className="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors">
-                Project Title
-              </h3>
-              <p className="text-gray-300 text-sm mt-2 group-hover:text-gray-100 transition-colors">
-                A short two-line description that gives insight about the
-                project and its features.
-              </p>
-
-              <div className="mt-4 flex space-x-4">
-                <button className="px-4 py-2 bg-yellow-500 text-sm font-bold text-gray-900 rounded-full shadow-md hover:bg-yellow-400 hover:shadow-lg transition-all">
-                  View Details
-                </button>
-                <button className="px-4 py-2 bg-gray-700 text-sm font-bold text-gray-200 rounded-full shadow-md hover:bg-gray-600 hover:text-white transition-all">
-                  Learn More
-                </button>
-              </div>
-            </div>
-            {/* <!-- Hover Overlay --> */}
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 rounded-xl transition-all duration-300 flex flex-col items-center justify-center z-20 opacity-0 group-hover:opacity-100">
-              <button className="px-6 py-2 bg-yellow-500 text-lg font-bold text-gray-900 rounded-full shadow-md hover:bg-yellow-400 hover:shadow-lg transition-all mb-4">
-                View Details
-              </button>
-              <button className="px-6 py-2 bg-gray-700 text-lg font-bold text-gray-200 rounded-full shadow-md hover:bg-gray-600 hover:text-white transition-all">
-                Learn More
-              </button>
-            </div>
+    <div className="bg-primary py-8 md:py-12 mb-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center text-white">
+          <span>- Projects</span>
+          <h2>
+            My <span className="">Latest Projects</span>
+          </h2>
+        </div>
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-8 items-center justify-center text-white mt-6 md:mt-10 p-2 md:p-3 rounded-3xl backdrop-blur-md bg-white/15 ">
+          <div>
+            <img
+              src="/src/assets/Honours.jpg"
+              className="h-[400px] md:h-[450px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500 "
+              alt="Projects Image"
+            />
           </div>
-
-          {/* <!-- Card 2 --> */}
-          <div className="relative group">
-            {/* <!-- Top Layer (Image) --> */}
-            <div className="relative w-full h-48 bg-gray-800 overflow-hidden rounded-t-xl shadow-lg">
-              <img
-                src="https://via.placeholder.com/400x200"
-                alt="Project Image"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
+          <div className="flex flex-col justify-between">
+            <div className="flex gap-3 items-center ">
+              <button className="keywordBtn"> Web Development</button>
+              <button className="keywordBtn">Responsive Design</button>
+              <button className="keywordBtn">API Integration</button>
             </div>
-            {/* <!-- Bottom Layer --> */}
-            <div className="relative bg-gradient-to-r from-blue-800 to-blue-600 rounded-b-xl shadow-lg px-6 py-8 -mt-12 z-10">
-              <h3 className="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors">
-                Another Project
-              </h3>
-              <p className="text-gray-300 text-sm mt-2 group-hover:text-gray-100 transition-colors">
-                A concise description that highlights key aspects of the
-                project, attracting interest.
+            <div>
+              <h2>
+                Project Title: <span>Stay Vista</span>
+              </h2>
+            </div>
+            <div>
+              <p>
+                Stay Vista is a web application that helps users find the best
+                accommodations in various locations. It features a search
+                engine, booking system, and a user-friendly interface.
               </p>
-              {/* <!-- Buttons --> */}
-              <div className="mt-4 flex space-x-4">
-                <button className="px-4 py-2 bg-yellow-500 text-sm font-bold text-gray-900 rounded-full shadow-md hover:bg-yellow-400 hover:shadow-lg transition-all">
-                  View Details
-                </button>
-                <button className="px-4 py-2 bg-gray-700 text-sm font-bold text-gray-200 rounded-full shadow-md hover:bg-gray-600 hover:text-white transition-all">
-                  Learn More
-                </button>
-              </div>
             </div>
-            {/* <!-- Hover Overlay --> */}
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 rounded-xl transition-all duration-300 flex flex-col items-center justify-center z-20 opacity-0 group-hover:opacity-100">
-              <button className="px-6 py-2 bg-yellow-500 text-lg font-bold text-gray-900 rounded-full shadow-md hover:bg-yellow-400 hover:shadow-lg transition-all mb-4">
-                View Details
-              </button>
-              <button className="px-6 py-2 bg-gray-700 text-lg font-bold text-gray-200 rounded-full shadow-md hover:bg-gray-600 hover:text-white transition-all">
-                Learn More
+            <div>
+              <button className="viewMore learn-more border">
+                <span className="circle" aria-hidden="true">
+                  <span className="icon arrow"></span>
+                </span>
+                <span className="button-text">View Details</span>
               </button>
             </div>
           </div>

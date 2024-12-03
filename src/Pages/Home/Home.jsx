@@ -4,7 +4,9 @@ import Projects from '../Projects/Projects';
 function Home() {
   return (
     <div>
-      <Hero />
+      <section id='home'>
+        <Hero />
+      </section>
       <section id="about" className="mt-10 md:mt-16">
         <About />
       </section>

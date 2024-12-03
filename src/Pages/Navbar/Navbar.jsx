@@ -45,10 +45,12 @@ export default function Navbar() {
           {/* Logo (left-aligned) */}
           <div className="flex-shrink-0">
             <Link
-              to="/"
+              to="home"
               smooth
               duration={500}
-              onClick={() => handleLinkClick('')}
+              spy
+              offset={-70}
+              onClick={() => handleLinkClick('home')}
             >
               <img className="w-32" src="/src/assets/logo.png" alt="Logo" />
             </Link>
@@ -73,6 +75,22 @@ export default function Navbar() {
               About
             </Link>
             <Link
+              to="skills"
+              smooth
+              duration={500}
+              spy
+              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
+                activeLink === 'projects'
+                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
+                  : ''
+              }`}
+              offset={-70}
+              onClick={() => handleLinkClick('skills')}
+            >
+              Skills
+            </Link>
+            <Link
               to="projects"
               smooth
               duration={500}
@@ -87,22 +105,6 @@ export default function Navbar() {
               onClick={() => handleLinkClick('projects')}
             >
               Projects
-            </Link>
-            <Link
-              to="services"
-              smooth
-              duration={500}
-              spy
-              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 border-b-2 border-transparent md:hover:border-b-2 md:hover:border-secondary ${
-                activeLink === 'services'
-                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
-                  : ''
-              }`}
-              offset={-70}
-              onClick={() => handleLinkClick('services')}
-            >
-              Services
             </Link>
             <Link
               to="blog"
