@@ -24,11 +24,6 @@ const Projects = () => {
             />
           </div>
           <div>
-            <div className="flex gap-4 md:gap-5 items-center mb-2 md:mb-4">
-              <button className="btn">Web Dev</button>
-              <button className="btn">Responsive Design</button>
-              <button className="btn">API Integration</button>
-            </div>
             <div className="my-2 md:my-4">
               <h2 className="text-3xl md:text-4xl ">
                 Project:{' '}
@@ -43,6 +38,11 @@ const Projects = () => {
                 accommodations in various locations. It features a search
                 engine, booking system, and a user-friendly interface.
               </p>
+            </div>
+            <div className="flex gap-4 md:gap-5 items-center mb-2 md:mb-4">
+              <button className="btn">Live Link</button>
+              <button className="btn">Client Repo</button>
+              <button className="btn">Server Repo</button>
             </div>
             <div className="mt-2 md:mt-4">
               <button className="viewMore learn-more border">
