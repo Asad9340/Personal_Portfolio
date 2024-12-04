@@ -1,103 +1,34 @@
-import  {  useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import ImageCarousel from '../ImageCarousel/ImageCarousel';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import './ProjectDetails.css'
 const ProjectDetails = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  const images = [
+    'https://i.postimg.cc/VkVz835X/profile.jpg',
+    'https://swiperjs.com/demos/images/nature-2.jpg',
+    'https://swiperjs.com/demos/images/nature-3.jpg',
+    'https://swiperjs.com/demos/images/nature-4.jpg',
+    'https://swiperjs.com/demos/images/nature-5.jpg',
+    'https://swiperjs.com/demos/images/nature-6.jpg',
+    'https://swiperjs.com/demos/images/nature-7.jpg',
+    'https://swiperjs.com/demos/images/nature-8.jpg',
+    'https://swiperjs.com/demos/images/nature-9.jpg',
+    'https://swiperjs.com/demos/images/nature-10.jpg',
+  ];
   return (
-    <div className='max-w-6xl mx-auto rounded-l-lg my-6 md:my-12'>
-      <Swiper
-        style={{
-          '--swiper-navigation-color': '#fff',
-          '--swiper-pagination-color': '#fff',
-        }}
-        loop={true}
-        spaceBetween={10}
-        navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
-      >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
-      </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        loop={true}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
-      </Swiper>
+    <div className="max-w-6xl mx-auto rounded-l-lg my-4 md:my-8">
+      <div className='text-center my-4 md:my-6'>
+        <h2 className="text-3xl md:text-5xl ">
+          Project Title:{' '}
+          <span className="font-semibold md:font-extrabold">
+            <span className="text-[#DC143C]">S</span>tay Vista
+          </span>
+        </h2>
+      </div>
+      <div>
+        <ImageCarousel images={images} />
+      </div>
+      <div>
+        <p>Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, iusto ipsa non voluptatem unde magnam nulla nam reiciendis cumque. Minima, cumque expedita. Harum modi id vitae quod veniam totam minus deleniti nesciunt, sed praesentium doloribus, nobis aliquid repudiandae perspiciatis obcaecati tempora tempore voluptatibus, quidem facere iure dignissimos distinctio! Consequatur neque fugiat aliquam dolorem quaerat commodi? Eos magnam facere quas sint earum aperiam rerum, dignissimos ducimus praesentium repudiandae esse sapiente explicabo eaque commodi itaque tenetur hic cupiditate provident, error dicta? Vero accusamus quo dicta assumenda esse commodi quae tempora non molestias sequi, quisquam quod itaque officia laudantium iure minus alias! Temporibus?</p>
+      </div>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+
 import './Projects.css';
 import { Link } from 'react-router-dom';
 const Projects = () => {
@@ -18,17 +19,17 @@ const Projects = () => {
           <div>
             <img
               src="/src/assets/Honours.jpg"
-              className="h-[400px] md:h-[450px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500 "
+              className="h-[250px] md:h-[300px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500 "
               alt="Projects Image"
             />
           </div>
           <div>
-            <div className="flex gap-4 md:gap-5 items-center mb-4 md:mb-6">
+            <div className="flex gap-4 md:gap-5 items-center mb-2 md:mb-4">
               <button className="btn">Web Dev</button>
               <button className="btn">Responsive Design</button>
               <button className="btn">API Integration</button>
             </div>
-            <div className="my-4 md:my-6">
+            <div className="my-2 md:my-4">
               <h2 className="text-3xl md:text-4xl ">
                 Project:{' '}
                 <span className="font-semibold md:font-bold">
@@ -36,14 +37,14 @@ const Projects = () => {
                 </span>
               </h2>
             </div>
-            <div className="my-4 md:my-6">
+            <div className="my-2 md:my-4">
               <p>
                 Stay Vista is a web application that helps users find the best
                 accommodations in various locations. It features a search
                 engine, booking system, and a user-friendly interface.
               </p>
             </div>
-            <div className="my-4 md:my-6">
+            <div className="mt-2 md:mt-4">
               <button className="viewMore learn-more border">
                 <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
