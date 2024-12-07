@@ -1,0 +1,111 @@
+[
+  {
+    "title": "React",
+    "description": "Skilled in React and React Router, crafting seamless user interfaces and efficient navigation. Expertise in building dynamic, responsive web applications with modern React techniques.",
+    "experience": "1+ years experience",
+    "projects": [
+      {
+        "name": "Stay Vista",
+        "description": "Developed a dynamic Motel Booking site with React."
+      },
+      {
+        "name": "Artistic Alchemy",
+        "description": "Created a dynamic HandyCraft project with React."
+      }
+    ],
+    "certifications": ["Complete Web Dev (PH)"],
+    "librariesAndTools": ["React Router", "Axios", "Framer Motion"],
+    "image": "https://pbs.twimg.com/profile_images/1785867863191932928/EpOqfO6d_400x400.png"
+  },
+  {
+    "title": "Node.js",
+    "description": "Skilled in backend development using Node.js, Express, and MongoDB. Expertise in building fast and scalable server-side applications.",
+    "experience": "2+ years experience",
+    "projects": [
+      {
+        "name": "RealTime Chat App",
+        "description": "Developed a real-time chat application with Node.js and Socket.io."
+      }
+    ],
+    "certifications": ["Node.js Mastery (Udemy)", "MongoDB for Developers"],
+    "librariesAndTools": ["Express", "MongoDB"],
+    "image": "https://w7.pngwing.com/pngs/205/650/png-transparent-node-js-javascript-software-developer-express-js-computer-software-node-js-logo-nodejs-software-development-thumbnail.png"
+  },
+  {
+    "title": "JavaScript",
+    "description": "Advanced JavaScript knowledge, including ES6+ features, asynchronous programming, and building interactive web applications.",
+    "experience": "3+ years experience",
+    "projects": [
+      {
+        "name": "Interactive ToDo App",
+        "description": "Built an interactive ToDo list with pure JavaScript, HTML, and CSS."
+      },
+      {
+        "name": "Weather Dashboard",
+        "description": "Developed a weather dashboard using JavaScript and a public API."
+      }
+    ],
+    "certifications": [
+      "JavaScript Algorithms and Data Structures (freeCodeCamp)"
+    ],
+    "librariesAndTools": ["Vanilla JavaScript", "ES6", "Webpack"],
+    "image": "https://static-00.iconduck.com/assets.00/javascript-js-icon-2048x2048-nyxvtvk0.png"
+  },
+  {
+    "title": "Vue.js",
+    "description": "Experience with building interactive web apps using Vue.js. Proficient in Vue Router and Vuex for state management.",
+    "experience": "2+ years experience",
+    "projects": [
+      {
+        "name": "Vue Storefront",
+        "description": "Built an e-commerce storefront using Vue.js and Vuex."
+      },
+      {
+        "name": "Todo App",
+        "description": "Developed a Todo application with Vue.js and Vue Router."
+      }
+    ],
+    "certifications": ["Vue.js Fundamentals (Udemy)"],
+    "librariesAndTools": ["Vue Router", "Vuex", "Axios"],
+    "image": "https://example.com/vuejs-image.png"
+  },
+  {
+    "title": "Python",
+    "description": "Proficient in Python for building scalable backend systems, data analysis, and web development with Django and Flask.",
+    "experience": "4+ years experience",
+    "projects": [
+      {
+        "name": "Django Blog",
+        "description": "Developed a blogging platform using Django and PostgreSQL."
+      },
+      {
+        "name": "Data Analysis with Python",
+        "description": "Used Python libraries like Pandas and Matplotlib for data analysis and visualization."
+      }
+    ],
+    "certifications": [
+      "Python for Data Science (Coursera)",
+      "Django for Web Development"
+    ],
+    "librariesAndTools": ["Django", "Flask", "Pandas", "Matplotlib"],
+    "image": "https://example.com/python-image.png"
+  },
+  {
+    "title": "Docker",
+    "description": "Skilled in containerization and orchestration using Docker for creating isolated and scalable environments for development and production.",
+    "experience": "2+ years experience",
+    "projects": [
+      {
+        "name": "Dockerized Web App",
+        "description": "Built and deployed a web application inside Docker containers for scalability."
+      },
+      {
+        "name": "Microservices with Docker",
+        "description": "Developed a microservices architecture with Docker and Kubernetes."
+      }
+    ],
+    "certifications": ["Docker Essentials (Udemy)"],
+    "librariesAndTools": ["Docker", "Kubernetes", "Docker Compose"],
+    "image": "https://example.com/docker-image.png"
+  }
+]

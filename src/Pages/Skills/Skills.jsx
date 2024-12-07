@@ -1,38 +1,34 @@
-import { FaReact, FaNodeJs } from 'react-icons/fa';
-import { SiJavascript, SiTailwindcss } from 'react-icons/si';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import { useEffect, useState } from 'react';
+import Skill from '../../components/Skill/Skill';
 
 const Skills = () => {
-  const skills = [
-    { name: 'React', icon: <FaReact />, proficiency: 90 },
-    { name: 'JavaScript', icon: <SiJavascript />, proficiency: 85 },
-    { name: 'Node.js', icon: <FaNodeJs />, proficiency: 80 },
-    { name: 'Tailwind CSS', icon: <SiTailwindcss />, proficiency: 75 },
-  ];
-
+  const [ skills, setSkills ] = useState([]);
+  useEffect(() => {
+    const fetchSkills = async () => {
+      const response = await fetch('/Data/skills.json');
+      const data = await response.json();
+      setSkills(data);
+    };
+    fetchSkills();
+  }, []);
   return (
-    <div className="max-w-4xl mx-auto py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-      {skills.map((skill, index) => (
-        <div
-          key={index}
-          className="flex flex-col items-center bg-white shadow-lg p-4 rounded-lg hover:scale-105 transition-transform"
-        >
-          <div className="text-5xl text-blue-600 mb-3">{skill.icon}</div>
-          <h3 className="text-lg font-bold mb-2">{skill.name}</h3>
-          <div className="w-20 h-20">
-            <CircularProgressbar
-              value={skill.proficiency}
-              text={`${skill.proficiency}%`}
-              styles={buildStyles({
-                textColor: '#333',
-                pathColor: '#4A90E2',
-                trailColor: '#d6d6d6',
-              })}
-            />
-          </div>
+    <div className="bg-primary">
+      <div className="max-w-6xl mx-auto py-8">
+        <div className="text-center text-white">
+          <span className="flex justify-center items-center gap-2 text-2xl">
+            <img src="/src/assets/leftArrow.gif" className="w-12" alt="" />{' '}
+            Skills
+          </span>
+          <h2 className="text-3xl md:text-4xl font-semibold md:font-bold">
+            Tech <span className="text-[#675C9C] ">Expertise</span>
+          </h2>
         </div>
-      ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 py-4 md:pt-6 mx-3 md:mx-0">
+          {skills?.map((skill, index) => (
+            <Skill skill={skill} key={index} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
