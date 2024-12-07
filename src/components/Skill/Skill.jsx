@@ -3,11 +3,9 @@ import { useState } from 'react';
 import './Skill.css';
 import SkillModal from '../Modal/SkillModal';
 function Skill({ skill }) {
-
-
   let [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="grid grid-cols-7 gap-2 md:gap-3 text-secondary bg-[#695E9F]/30 items-center rounded-lg p-2">
+    <div className="grid grid-cols-7 gap-2 md:gap-3 text-secondary backdrop-blur-lg bg-[#695E9F]/50 items-center rounded-xl p-3 md:p-4">
       <div className="col-span-2">
         <img
           className="w-32 object-cover rounded-xl hover:scale-105 duration-300 animate-pulse"
@@ -25,8 +23,12 @@ function Skill({ skill }) {
 
         <hr className="border-b border-[#675C9C]" />
         <p className="text-sm my-2">
-          Description: {skill?.description.slice(0, 70)}...
+          Description:{' '}
+          {skill?.description?.length > 50
+            ? `${skill.description.slice(0, 50)}...`
+            : skill?.description}
         </p>
+
         <button
           onClick={() => setIsOpen(true)}
           className="relative flex items-center px-4 py-2 text-xs overflow-hidden transition-all bg-[#675C9C] rounded-md group"

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import Skill from '../../components/Skill/Skill';
-
+import "./Skills.css"
 const Skills = () => {
-  const [ skills, setSkills ] = useState([]);
+  const [skills, setSkills] = useState([]);
   useEffect(() => {
     const fetchSkills = async () => {
       const response = await fetch('/Data/skills.json');
@@ -23,9 +23,11 @@ const Skills = () => {
             Tech <span className="text-[#675C9C] ">Expertise</span>
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 py-4 md:pt-6 mx-3 md:mx-0">
+        <div className="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 py-4 md:pt-6 mx-3 md:mx-0">
           {skills?.map((skill, index) => (
-            <Skill skill={skill} key={index} />
+            <div className='card duration-500 cursor-pointer hover:scale-105' key={index}>
+              <Skill skill={skill} />
+            </div>
           ))}
         </div>
       </div>
