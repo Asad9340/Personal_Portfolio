@@ -1,4 +1,3 @@
-
 import './Projects.css';
 import { Link } from 'react-router-dom';
 const Projects = () => {
@@ -16,20 +15,20 @@ const Projects = () => {
           </h2>
         </div>
         <div
-          className={`flex gap-4 md:gap-8 items-center justify-center text-white mt-6 md:mt-10 p-2 md:p-3 rounded-3xl backdrop-blur-md bg-white/15 ${
-            id%2==1
-              ? 'flex-row-reverse'
-              : 'flex-row'
+          className={`flex gap-4 md:gap-8 m-3 items-center justify-center text-white mt-6 md:mt-10 p-4 md:p-6 rounded-3xl backdrop-blur-md bg-white/15 ${
+            id % 2 == 1
+              ? 'flex-col md:flex-row-reverse'
+              : 'flex-col md:flex-row'
           }`}
         >
-          <div className='flex-1'>
+          <div className="flex-1">
             <img
               src="/src/assets/Honours.jpg"
-              className="h-[250px] md:h-[300px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500 "
+              className=" md:h-[300px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500 "
               alt="Projects Image"
             />
           </div>
-          <div className='flex-1'>
+          <div className="flex-1">
             <div className="my-2 md:my-4">
               <h2 className="text-3xl md:text-4xl ">
                 Project:{' '}
@@ -46,11 +45,11 @@ const Projects = () => {
               </p>
             </div>
             <div className="flex gap-4 md:gap-5 items-center mb-2 md:mb-4">
-              <button className="btn">Live Link</button>
-              <button className="btn">Client Repo</button>
-              <button className="btn">Server Repo</button>
+              <button className="btn">Live Site</button>
+              <button className="btn">Client</button>
+              <button className="btn">Server</button>
             </div>
-            <div className="mt-2 md:mt-4">
+            <div className="mt-3 md:mt-4">
               <button className="viewMore learn-more border">
                 <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
@@ -64,19 +63,19 @@ const Projects = () => {
         </div>
         <div
           className={`flex gap-4 md:gap-8 items-center justify-center text-white mt-6 md:mt-10 p-2 md:p-3 rounded-3xl backdrop-blur-md bg-white/15 ${
-            id%2==0
-              ? 'flex-row-reverse'
-              : 'flex-row'
+            id % 2 == 0
+              ? 'flex-col md:flex-row-reverse'
+              : 'flex-col md:flex-row'
           }`}
         >
-          <div className='flex-1'>
+          <div className="flex-1">
             <img
               src="/src/assets/Honours.jpg"
-              className="h-[250px] md:h-[300px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500 "
+              className=" md:h-[300px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500 "
               alt="Projects Image"
             />
           </div>
-          <div className='flex-1'>
+          <div className="flex-1">
             <div className="my-2 md:my-4">
               <h2 className="text-3xl md:text-4xl ">
                 Project:{' '}
@@ -93,9 +92,9 @@ const Projects = () => {
               </p>
             </div>
             <div className="flex gap-4 md:gap-5 items-center mb-2 md:mb-4">
-              <button className="btn">Live Link</button>
-              <button className="btn">Client Repo</button>
-              <button className="btn">Server Repo</button>
+              <button className="btn">Live Site</button>
+              <button className="btn">Client</button>
+              <button className="btn">Server</button>
             </div>
             <div className="mt-2 md:mt-4">
               <button className="viewMore learn-more border">

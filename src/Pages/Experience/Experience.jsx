@@ -38,7 +38,7 @@ const Experience = () => {
               Frontend Development, API Integration, Responsive Web Development,
               Performance Optimization.
             </p>
-            <div className="flex gap-2 text-secondary">
+            <div className="flex flex-wrap gap-2 text-secondary">
               <p className="bg-[#8476B3]  px-4 py-1 rounded-lg text-xs font-extralight">
                 Angular
               </p>
@@ -72,7 +72,7 @@ const Experience = () => {
               Frontend Development, API Integration, and Responsive Web
               Development as an intern.
             </p>
-            <div className="flex gap-2 text-primary">
+            <div className="flex flex-wrap gap-2 text-primary">
               <p className="bg-[#C0C0C0]  px-4 py-1 rounded-lg text-xs font-extralight">
                 Angular
               </p>
@@ -107,7 +107,7 @@ const Experience = () => {
               Frontend Development, API Integration, and Responsive Web
               Development for my final year University Project.
             </p>
-            <div className="flex gap-2 text-primary">
+            <div className="flex flex-wrap gap-2 text-primary">
               <p className="bg-[#C0C0C0]  px-4 py-1 rounded-lg text-xs font-extralight">
                 React
               </p>

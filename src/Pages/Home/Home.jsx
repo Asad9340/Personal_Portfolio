@@ -1,5 +1,6 @@
 import Hero from '../../components/Hero/Hero';
 import About from '../About/About';
+import Blog from '../Blogs/Blog';
 import Experience from '../Experience/Experience';
 import Projects from '../Projects/Projects';
 import Skills from './../Skills/Skills';
@@ -20,6 +21,9 @@ function Home() {
       </section>
       <section id="projects" className="mt-10 md:mt-16">
         <Projects />
+      </section>
+      <section id="blog" className="mt-10 md:mt-16">
+        <Blog />
       </section>
     </div>
   );
