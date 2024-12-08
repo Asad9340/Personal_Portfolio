@@ -35,7 +35,7 @@ function About() {
         <TabPanel>
           <AboutMe/>
         </TabPanel>
-        <TabPanel>
+        <TabPanel className="mt-4">
           <EducationDetails/>
         </TabPanel>
       </Tabs>

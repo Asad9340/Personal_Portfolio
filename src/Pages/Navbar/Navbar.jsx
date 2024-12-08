@@ -102,6 +102,22 @@ export default function Navbar() {
               Skills
             </Link>
             <Link
+              to="experience"
+              smooth
+              duration={500}
+              spy
+              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
+              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 md:hover:border-b-2 md:hover:border-secondary ${
+                activeLink === 'experience'
+                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
+                  : ''
+              }`}
+              offset={-70}
+              onClick={() => handleLinkClick('experience')}
+            >
+              Experience
+            </Link>
+            <Link
               to="projects"
               smooth
               duration={500}

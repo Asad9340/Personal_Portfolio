@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Projects = () => {
   const id = 44;
   return (
-    <div className="bg-primary py-8 md:py-12 mb-6 font-lexend">
+    <div className="bg-primary py-8 md:py-12 mb-[1px] font-lexend">
       <div className="max-w-6xl mx-auto">
         <div className="text-center text-white">
           <span className="flex justify-center items-center gap-2 text-2xl">

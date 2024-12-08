@@ -21,7 +21,7 @@ function SkillModal({ isOpen, setIsOpen, skill }) {
           <div className="flex min-h-full mt-14 md:mt-4 items-center justify-center p-4">
             <DialogPanel
               transition
-              className="w-full max-w-lg md:max-w-xl rounded-xl p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0 bg-[#695E9F]/50"
+              className="w-full max-w-lg md:max-w-lg rounded-xl p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0 bg-[#695E9F]/50"
               data-aos="zoom-in"
             >
               <DialogTitle
