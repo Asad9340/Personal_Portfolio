@@ -131,7 +131,6 @@
   height: 70%;
 }
 
-/* From Uiverse.io by david-mohseni */
 .wrapper {
   display: inline-flex;
   list-style: none;
@@ -143,7 +142,7 @@
 .wrapper .icon {
   position: relative;
   background: #fff;
-  color: blue;
+  color: #675C9C;
   border-radius: 50%;
   margin: 5px;
   width: 50px;
@@ -199,26 +198,26 @@
 .wrapper .facebook:hover,
 .wrapper .facebook:hover .tooltip,
 .wrapper .facebook:hover .tooltip::before {
-  background: #1877f2;
+  background: #675C9C;
   color: #fff;
 }
 
 .wrapper .twitter:hover,
 .wrapper .twitter:hover .tooltip,
 .wrapper .twitter:hover .tooltip::before {
-  background: #1da1f2;
+  background: #675C9C;
   color: #fff;
 }
 
 .wrapper .linkedin:hover,
 .wrapper .linkedin:hover .tooltip,
 .wrapper .linkedin:hover .tooltip::before {
-  background: #0A66C2;
+  background: #675C9C;
   color: #fff;
 }
 .wrapper .whatsapp:hover,
 .wrapper .whatsapp:hover .tooltip,
 .wrapper .whatsapp:hover .tooltip::before {
-  background: #0A66C2;
+  background: #675C9C;
   color: #fff;
 }
