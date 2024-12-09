@@ -1,6 +1,7 @@
 import Hero from '../../components/Hero/Hero';
 import About from '../About/About';
 import Blog from '../Blogs/Blog';
+import Contact from '../Contact/Contact';
 import Experience from '../Experience/Experience';
 import Projects from '../Projects/Projects';
 import Skills from './../Skills/Skills';
@@ -24,6 +25,9 @@ function Home() {
       </section>
       <section id="blog" className="mt-10 md:mt-16">
         <Blog />
+      </section>
+      <section id="contact" className="mt-10 md:mt-16">
+        <Contact/>
       </section>
     </div>
   );
