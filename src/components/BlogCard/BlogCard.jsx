@@ -17,7 +17,9 @@ const BlogCard = ({ blog }) => {
         <div className="p-5">
           <Link to="#">
             <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2">
-              {blog?.title}
+              {blog?.title?.length > 25
+                ? `${blog.title.slice(0, 25)}...`
+                : blog?.title}
             </h5>
           </Link>
           <p className="text-gray-500 text-sm mb-2">
