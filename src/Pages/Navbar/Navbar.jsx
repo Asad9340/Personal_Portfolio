@@ -7,20 +7,18 @@ import { useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
   const [activeLink, setActiveLink] = useState('');
   const menuRef = useRef(null);
-
-  const navItems = [
-    { name: 'About', link: 'about' },
-    { name: 'Skills', link: 'skills' },
-    { name: 'Experience', link: 'experience' },
-    { name: 'Projects', link: 'projects' },
-    { name: 'Blog', link: 'blog' },
-    { name: 'Contact', link: 'contact' },
+  const navItem = [
+    'about',
+    'skills',
+    'experience',
+    'projects',
+    'blog',
+    'contact',
   ];
-
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
@@ -73,23 +71,23 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Navbar Links for Desktop */}
+          {/* Navbar Links */}
           <div className="hidden md:flex flex-grow justify-center space-x-6">
-            {navItems.map(item => (
+            {navItem.map((item, index) => (
               <Link
-                key={item.link}
-                to={item.link}
+                key={index}
+                to={item}
                 smooth
                 duration={500}
                 spy
                 activeClass="text-white py-2 px-4 rounded border-b-2 border-secondary"
-                className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 ${
-                  activeLink === item.link ? 'border-b-2 border-secondary' : ''
+                className={`text-secondary capitalize hover:text-white py-2 px-4 rounded transition duration-500 ${
+                  activeLink === `{item}` ? 'border-b-2 border-secondary' : ''
                 }`}
                 offset={-70}
-                onClick={() => handleLinkClick(item.link)}
+                onClick={() => handleLinkClick(`${item}`)}
               >
-                {item.name}
+                {item}
               </Link>
             ))}
           </div>
@@ -125,23 +123,36 @@ export default function Navbar() {
         className={`absolute top-16 left-0 mx-8 py-2 w-[calc(100%-64px)] rounded-md bg-[#111827] shadow-lg transition-all duration-300 z-50 ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
-        ref={menuRef}
       >
         <div className="space-y-2 p-4">
           <ul className="space-y-2">
-            {navItems.map(item => (
-              <li key={item.link}>
+            <li>
+              <Link
+                to="about"
+                smooth
+                duration={500}
+                spy
+                activeClass="block text-[#1b1238] text-bold bg-secondary py-2 px-4 rounded-md transition duration-200"
+                className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                offset={-70}
+                onClick={() => handleLinkClick('about')}
+              >
+                About
+              </Link>
+            </li>
+            {navItem.map((item, index) => (
+              <li key={index}>
                 <Link
-                  to={item.link}
+                  to={item}
                   smooth
                   duration={500}
                   spy
-                  activeClass="block text-[#1b1238] bg-secondary py-2 px-4 rounded-md transition duration-200"
-                  className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                  activeClass="block text-[#1b1238] text-bold bg-secondary py-2 px-4 rounded-md transition duration-200"
+                  className="block text-secondary capitalize hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
                   offset={-70}
-                  onClick={() => handleLinkClick(item.link)}
+                  onClick={() => handleLinkClick(`${item}`)}
                 >
-                  {item.name}
+                  {item}
                 </Link>
               </li>
             ))}
