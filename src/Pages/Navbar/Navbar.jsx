@@ -4,24 +4,32 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { RxCross1 } from 'react-icons/rx';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+
 export default function Navbar() {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
   const menuRef = useRef(null);
+
+  const navItems = [
+    { name: 'About', link: 'about' },
+    { name: 'Skills', link: 'skills' },
+    { name: 'Experience', link: 'experience' },
+    { name: 'Projects', link: 'projects' },
+    { name: 'Blog', link: 'blog' },
+    { name: 'Contact', link: 'contact' },
+  ];
 
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
-    // Close menu when clicking outside
     const handleClickOutside = event => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         closeMenu();
       }
     };
 
-    // Close menu on scroll
     const handleScroll = () => {
       if (isOpen) closeMenu();
     };
@@ -29,14 +37,12 @@ export default function Navbar() {
     document.addEventListener('mousedown', handleClickOutside);
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup event listeners on component unmount
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       window.removeEventListener('scroll', handleScroll);
     };
   }, [isOpen]);
 
-  // Handle click on navigation items to set active link
   const handleLinkClick = link => {
     const currentPath = location.pathname;
     if (currentPath !== '/') {
@@ -53,7 +59,7 @@ export default function Navbar() {
     <nav className="bg-primary text-secondary font-manrope sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo (left-aligned) */}
+          {/* Logo */}
           <div className="flex-shrink-0">
             <Link
               to="home"
@@ -67,122 +73,37 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Navbar Links (center-aligned) */}
+          {/* Navbar Links for Desktop */}
           <div className="hidden md:flex flex-grow justify-center space-x-6">
-            <Link
-              to="about"
-              smooth
-              duration={500}
-              spy
-              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500  md:hover:border-b-2 md:hover:border-secondary ${
-                activeLink === 'about'
-                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
-                  : ''
-              }`}
-              offset={-70}
-              onClick={() => handleLinkClick('about')}
-            >
-              About
-            </Link>
-            <Link
-              to="skills"
-              smooth
-              duration={500}
-              spy
-              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 md:hover:border-b-2 md:hover:border-secondary ${
-                activeLink === 'skills'
-                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
-                  : ''
-              }`}
-              offset={-70}
-              onClick={() => handleLinkClick('skills')}
-            >
-              Skills
-            </Link>
-            <Link
-              to="experience"
-              smooth
-              duration={500}
-              spy
-              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 md:hover:border-b-2 md:hover:border-secondary ${
-                activeLink === 'experience'
-                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
-                  : ''
-              }`}
-              offset={-70}
-              onClick={() => handleLinkClick('experience')}
-            >
-              Experience
-            </Link>
-            <Link
-              to="projects"
-              smooth
-              duration={500}
-              spy
-              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500  md:hover:border-b-2 md:hover:border-secondary ${
-                activeLink === 'projects'
-                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
-                  : ''
-              }`}
-              offset={-70}
-              onClick={() => handleLinkClick('projects')}
-            >
-              Projects
-            </Link>
-            <Link
-              to="blog"
-              smooth
-              duration={500}
-              spy
-              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 md:hover:border-b-2 md:hover:border-secondary ${
-                activeLink === 'blog'
-                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
-                  : ''
-              }`}
-              offset={-70}
-              onClick={() => handleLinkClick('blog')}
-            >
-              Blog
-            </Link>
-            <Link
-              to="contact"
-              smooth
-              duration={500}
-              spy
-              activeClass="text-white py-2 px-4 rounded transition duration-500 border-b-2 border-secondary"
-              className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 md:hover:border-b-2 md:hover:border-secondary ${
-                activeLink === 'contact'
-                  ? 'text-white py-2 px-4 border-b-2 border-secondary'
-                  : ''
-              }`}
-              offset={-70}
-              onClick={() => handleLinkClick('contact')}
-            >
-              Contact
-            </Link>
+            {navItems.map(item => (
+              <Link
+                key={item.link}
+                to={item.link}
+                smooth
+                duration={500}
+                spy
+                activeClass="text-white py-2 px-4 rounded border-b-2 border-secondary"
+                className={`text-secondary hover:text-white py-2 px-4 rounded transition duration-500 ${
+                  activeLink === item.link ? 'border-b-2 border-secondary' : ''
+                }`}
+                offset={-70}
+                onClick={() => handleLinkClick(item.link)}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
 
-          {/* Hire Me Button (right-aligned) */}
+          {/* Hire Me Button */}
           <div className="hidden md:flex items-center">
             <Link to="/hire-me">
-              <button
-                data-aos="zoom-in"
-                data-aos-delay="50"
-                data-aos-duration="1000"
-                data-aos-easing="ease-in-out"
-                className="button font-lexend"
-              >
+              <button className="button font-lexend">
                 Hire <span className="text-red-500">M</span>e
               </button>
             </Link>
           </div>
 
-          {/* Hamburger Menu for Mobile */}
+          {/* Hamburger Menu */}
           <div className="md:hidden flex items-center">
             <button
               type="button"
@@ -201,82 +122,29 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-14 left-0 mx-8 py-2 w-[calc(100%-64px)] rounded-md bg-[#111827] shadow-lg transition-all duration-300 z-50 ${
+        className={`absolute top-16 left-0 mx-8 py-2 w-[calc(100%-64px)] rounded-md bg-[#111827] shadow-lg transition-all duration-300 z-50 ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
+        ref={menuRef}
       >
         <div className="space-y-2 p-4">
           <ul className="space-y-2">
-            <li>
-              <Link
-                to="about"
-                smooth
-                duration={500}
-                spy
-                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
-                className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
-                offset={-70}
-                onClick={() => handleLinkClick('about')}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="projects"
-                smooth
-                duration={500}
-                spy
-                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
-                className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
-                offset={-70}
-                onClick={() => handleLinkClick('projects')}
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="services"
-                smooth
-                duration={500}
-                spy
-                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
-                className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
-                offset={-70}
-                onClick={() => handleLinkClick('services')}
-              >
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="blog"
-                smooth
-                duration={500}
-                spy
-                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
-                className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
-                offset={-70}
-                onClick={() => handleLinkClick('blog')}
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="contact"
-                smooth
-                duration={500}
-                spy
-                activeClass="block text-white bg-secondary py-2 px-4 rounded-md transition duration-200"
-                className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
-                offset={-70}
-                onClick={() => handleLinkClick('contact')}
-              >
-                Contact
-              </Link>
-            </li>
+            {navItems.map(item => (
+              <li key={item.link}>
+                <Link
+                  to={item.link}
+                  smooth
+                  duration={500}
+                  spy
+                  activeClass="block text-[#1b1238] bg-secondary py-2 px-4 rounded-md transition duration-200"
+                  className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                  offset={-70}
+                  onClick={() => handleLinkClick(item.link)}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
