@@ -107,5 +107,23 @@
     "certifications": ["Docker Essentials (Udemy)"],
     "librariesAndTools": ["Docker", "Kubernetes", "Docker Compose"],
     "image": "https://example.com/docker-image.png"
+  },
+  {
+    "title": "Docker",
+    "description": "Skilled in containerization and orchestration using Docker for creating isolated and scalable environments for development and production.",
+    "experience": "2+ years experience",
+    "projects": [
+      {
+        "name": "Dockerized Web App",
+        "description": "Built and deployed a web application inside Docker containers for scalability."
+      },
+      {
+        "name": "Microservices with Docker",
+        "description": "Developed a microservices architecture with Docker and Kubernetes."
+      }
+    ],
+    "certifications": ["Docker Essentials (Udemy)"],
+    "librariesAndTools": ["Docker", "Kubernetes", "Docker Compose"],
+    "image": "https://example.com/docker-image.png"
   }
 ]

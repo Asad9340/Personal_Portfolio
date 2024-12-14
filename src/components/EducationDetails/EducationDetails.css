@@ -1,8 +1,12 @@
 .swiper {
   width: 100%;
-  height: 100%;
+  height: 400px !important;
 }
-
+@media (max-width: 767px) {
+  .swiper{
+    height: 1000px !important;
+  }
+}
 .swiper-slide {
   text-align: center;
   font-size: 18px;

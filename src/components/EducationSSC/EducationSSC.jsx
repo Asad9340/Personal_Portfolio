@@ -9,7 +9,7 @@ const EducationSSC = () => {
             <img
               src="/src/assets/SSC.jpg"
               alt="school-image"
-              className="rounded-xl transform w-36 h-full mb-4 md:mb-0 object-cover  border-4 border-gray-300 shadow-lg"
+              className="rounded-xl transform w-36 mb-4 md:mb-0 object-cover  border-4 border-gray-300 shadow-lg"
             />
           </div>
           <div className="col-span-6 p-5 rounded-2xl w-full bg-[#F7F1FB] flex flex-col justify-center">

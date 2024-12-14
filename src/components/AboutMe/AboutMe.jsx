@@ -27,7 +27,7 @@ function AboutMe() {
               constantly seeking new challenges to push my skills to the next
               level. Let’s collaborate and bring your vision to life!
             </p>
-            <div className="mt-2 md:mt-4">
+            <div className="mt-2 md:mt-4 flex justify-center md:justify-start">
               <a
                 href="/CV_Resume/Asadul's CV.pdf"
                 download="Asadul's CV.pdf"
