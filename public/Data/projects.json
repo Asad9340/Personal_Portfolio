@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Stay Vista",
+    "description": "Stay Vista is a web application that helps users find the best accommodations in various locations. It features a search engine, booking system, and a user-friendly interface.",
+    "image": "/src/assets/Honours.jpg",
+    "liveSite": "#",
+    "clientCode": "#",
+    "serverCode": "#"
+  },
+  {
+    "id": 2,
+    "title": "Tech Bridge",
+    "description": "Tech Bridge is a platform connecting technology enthusiasts with resources and projects. It features forums, project collaboration tools, and technical blogs.",
+    "image": "/src/assets/HSC.jpg",
+    "liveSite": "#",
+    "clientCode": "#",
+    "serverCode": "#"
+  },
+  {
+    "id": 3,
+    "title": "Code Wizard",
+    "description": "Code Wizard helps developers with syntax guides, templates, and code snippets to enhance productivity and learning.",
+    "image": "/src/assets/SSC.jpg",
+    "liveSite": "#",
+    "clientCode": "#",
+    "serverCode": "#"
+  }
+]

@@ -1,7 +1,15 @@
+import { useEffect, useState } from 'react';
 import Project from '../../components/Project/Project';
 import './Projects.css';
 const Projects = () => {
-  const id = 44;
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    fetch('Data/projects.json')
+      .then(response => response.json())
+      .then(data => setProjects(data))
+      .catch(error => console.error('Error fetching projects data:', error));
+  }, []);
   return (
     <div className="bg-primary py-8 md:py-12 mb-[1px] font-lexend">
       <div className="max-w-6xl mx-auto">
@@ -15,7 +23,18 @@ const Projects = () => {
           </h2>
         </div>
         <div>
-          <Project id={id} />
+          {projects.map(project => (
+            <Project
+              key={project.id}
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              liveSite={project.liveSite}
+              clientCode={project.clientCode}
+              serverCode={project.serverCode}
+            />
+          ))}
         </div>
         <div>
           <button>See All Projects</button>

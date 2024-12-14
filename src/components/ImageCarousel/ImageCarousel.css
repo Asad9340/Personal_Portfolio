@@ -3,6 +3,12 @@
   width: 100%;
   height: 400px;
 }
+.mySwiperImg{
+  height: 100px !important;
+}
+.mySwiperImg img{
+ height: 100px !important;
+}
 
 .swiper-slide {
   text-align: center;

@@ -3,7 +3,6 @@ import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css';
 import Skill from '../../components/Skill/Skill';
 import './Skills.css';
-
 const Skills = () => {
   const pagePerView = 6;
   const [currentPage, setCurrentPage] = useState(1);
