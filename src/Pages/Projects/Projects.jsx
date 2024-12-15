@@ -29,7 +29,7 @@ const Projects = () => {
               id={project.id}
               title={project.title}
               description={project.description}
-              image={project.image}
+              images={project.images}
               liveSite={project.liveSite}
               clientCode={project.clientCode}
               serverCode={project.serverCode}

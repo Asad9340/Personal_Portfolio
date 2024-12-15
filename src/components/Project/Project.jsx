@@ -5,7 +5,7 @@ function Project({
   id,
   title,
   description,
-  image,
+  images,
   liveSite,
   clientCode,
   serverCode,
@@ -18,7 +18,7 @@ function Project({
     >
       <div className="flex-1">
         <img
-          src={image}
+          src={images[0]}
           className="md:h-[300px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500"
           alt={title}
         />
@@ -28,8 +28,8 @@ function Project({
           <h2 className="text-3xl md:text-4xl">
             Project:{' '}
             <span className="font-semibold md:font-bold">
-              <span className="text-[#DC143C]">S</span>
-              {title}
+              <span className="text-[#DC143C]">{title.charAt(0)}</span>
+              {title.slice(1)}
             </span>
           </h2>
         </div>
