@@ -8,7 +8,7 @@ function AboutMe() {
           <div className="md:flex-1">
             <img
               className="rounded-xl w-full"
-              src="/src/assets/about.jpg"
+              src="/images/about.jpg"
               alt="About Me"
             />
           </div>
