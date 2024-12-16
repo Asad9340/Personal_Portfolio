@@ -67,7 +67,7 @@ export default function Navbar() {
               offset={-70}
               onClick={() => handleLinkClick('home')}
             >
-              <img className="w-32" src="/src/assets/logo.png" alt="Logo" />
+              <img className="w-32" src="/images/logo.png" alt="Logo" />
             </Link>
           </div>
 

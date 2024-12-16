@@ -6,7 +6,7 @@ const EducationHonours = () => {
         <div className="md:grid grid-cols-9 gap-8 m-4 mx-auto w-full">
           <div className="col-span-3">
             <img
-              src="/src/assets/Honours.jpg"
+              src="/images/Honours.jpg"
               alt="school-image"
               className="rounded-xl transform w-36 h-full mb-4 md:mb-0  object-cover  border-4 border-gray-300 shadow-lg"
             />

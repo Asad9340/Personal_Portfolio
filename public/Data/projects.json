@@ -4,10 +4,10 @@
     "title": "Stay Vista",
     "description": "Stay Vista is a web application that helps users find the best accommodations in various locations. It features a search engine, booking system, and a user-friendly interface.",
     "images": [
-      "/src/assets/about.jpg",
-      "/src/assets/Honours.jpg",
-      "/src/assets/HSC.jpg",
-      "/src/assets/SSC.jpg"
+      "/images/about.jpg",
+      "/images/Honours.jpg",
+      "/images/HSC.jpg",
+      "/images/SSC.jpg"
     ],
     "highlights": [
       "Responsive design optimized for all devices",
@@ -39,9 +39,9 @@
     "title": "Tech Bridge",
     "description": "Tech Bridge is a platform connecting technology enthusiasts with resources and projects. It features forums, project collaboration tools, and technical blogs.",
     "images": [
-      "/src/assets/Honours.jpg",
-      "/src/assets/TechBridge2.jpg",
-      "/src/assets/TechBridge3.jpg"
+      "/images/Honours.jpg",
+      "/images/TechBridge2.jpg",
+      "/images/TechBridge3.jpg"
     ],
     "highlights": [
       "Forum for discussing technical topics",
@@ -66,9 +66,9 @@
     "title": "Code Wizard",
     "description": "Code Wizard helps developers with syntax guides, templates, and code snippets to enhance productivity and learning.",
     "images": [
-      "/src/assets/SSC.jpg",
-      "/src/assets/CodeWizard2.jpg",
-      "/src/assets/CodeWizard3.jpg"
+      "/images/SSC.jpg",
+      "/images/CodeWizard2.jpg",
+      "/images/CodeWizard3.jpg"
     ],
     "highlights": [
       "Syntax guides for multiple languages",
@@ -93,10 +93,10 @@
     "title": "Travel Guru",
     "description": "Travel Guru is a travel planning web application that helps users create and manage itineraries with recommendations for accommodations and activities.",
     "images": [
-      "/src/assets/HSC.jpg",
-      "/src/assets/TravelGuru2.jpg",
-      "/src/assets/TravelGuru3.jpg",
-      "/src/assets/TravelGuru4.jpg"
+      "/images/HSC.jpg",
+      "/images/TravelGuru2.jpg",
+      "/images/TravelGuru3.jpg",
+      "/images/TravelGuru4.jpg"
     ],
     "highlights": [
       "AI-powered recommendations for destinations",

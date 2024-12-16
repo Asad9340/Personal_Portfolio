@@ -7,7 +7,7 @@ const EducationSSC = () => {
         <div className="md:grid grid-cols-9 gap-8 m-4 mx-auto">
           <div className="col-span-3">
             <img
-              src="/src/assets/SSC.jpg"
+              src="/images/SSC.jpg"
               alt="school-image"
               className="rounded-xl transform w-36 mb-4 md:mb-0 object-cover  border-4 border-gray-300 shadow-lg"
             />
