@@ -24,7 +24,7 @@ const Hero = () => {
             </h3>
             <h3 className="my-4 flex items-center gap-4 text-lg md:text-2xl">
               A Passionate{' '}
-              <span className="text-3xl md:text-4xl font-bold font-typeWritter flex">
+              <span className="text-2xl md:text-4xl font-bold font-typeWritter flex">
                 <Typewriter
                   options={{
                     strings: [
