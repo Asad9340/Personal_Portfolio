@@ -19,7 +19,7 @@ function Project({
       <div className="flex-1">
         <img
           src={images[0]}
-          className="md:h-[300px] w-full object-cover hover:scale-105 rounded-3xl ease-in-out duration-500"
+          className="w-full h-[200px] md:h-[300px] object-cover hover:scale-105 rounded-3xl ease-in-out duration-500"
           alt={title}
         />
       </div>
