@@ -29,7 +29,7 @@ function SkillModal({ isOpen, setIsOpen, skill }) {
                 className="text-xl font-medium text-white flex justify-between items-center"
               >
                 <span> Title: {skill.title}</span>
-                <span onClick={close}>
+                <span onClick={close} className='border p-2 rounded-full hover:scale-110 duration-300 ease-in-out hover:bg-red-500 hover:border-red-500'>
                   <RxCross2 />
                 </span>
               </DialogTitle>

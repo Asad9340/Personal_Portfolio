@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 import Project from '../../components/Project/Project';
 import './Projects.css';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch('Data/projects.json')
-      .then(response => response.json())
-      .then(data => setProjects(data))
-      .catch(error => console.error('Error fetching projects data:', error));
+    (async () => {
+      const res = await fetch('http://localhost:5000/projects');
+      const data = await res.json();
+      setProjects(data);
+    })();
   }, []);
+  if (!projects) {
+    return <LoadingSpinner />;
+  }
   return (
     <div className="bg-primary py-8 md:py-12 mb-[1px] font-lexend">
       <div className="max-w-6xl mx-auto">
@@ -25,7 +30,7 @@ const Projects = () => {
         <div>
           {projects.map(project => (
             <Project
-              key={project.id}
+              key={project._id}
               id={project.id}
               title={project.title}
               description={project.description}

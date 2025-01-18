@@ -3,6 +3,7 @@ import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css';
 import Skill from '../../components/Skill/Skill';
 import './Skills.css';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 const Skills = () => {
   const pagePerView = 6;
   const [currentPage, setCurrentPage] = useState(1);
@@ -10,7 +11,7 @@ const Skills = () => {
 
   useEffect(() => {
     const fetchSkills = async () => {
-      const response = await fetch('/Data/skills.json');
+      const response = await fetch('http://localhost:5000/skills');
       const data = await response.json();
       setSkills(data);
     };
@@ -25,7 +26,9 @@ const Skills = () => {
   function handlePageChange(page) {
     setCurrentPage(page);
   }
-
+  if (!skills) {
+    return <LoadingSpinner />;
+  }
   return (
     <div className="bg-primary">
       <div className="max-w-6xl mx-auto py-8">

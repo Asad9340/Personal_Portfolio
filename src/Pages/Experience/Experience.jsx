@@ -1,10 +1,11 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaLocationDot } from 'react-icons/fa6';
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 const Experience = () => {
   const [experienceData, setExperienceData] = useState([]);
@@ -13,8 +14,9 @@ const Experience = () => {
   useEffect(() => {
     const fetchExperienceData = async () => {
       try {
-        const response = await fetch('/Data/experience.json');
+        const response = await fetch('http://localhost:5000/experience');
         const data = await response.json();
+        console.log(data);
         setExperienceData(data);
       } catch (error) {
         console.error('Error fetching experience data:', error);
@@ -31,7 +33,9 @@ const Experience = () => {
   const inactiveExperiences = experienceData.filter(
     exp => exp.classType === 'inactive'
   );
-
+  if (!experienceData) {
+    return <LoadingSpinner/>
+  }
   return (
     <div className="max-w-6xl mx-4 md:mx-auto">
       <div className="text-center mb-4 md:mb-8">
