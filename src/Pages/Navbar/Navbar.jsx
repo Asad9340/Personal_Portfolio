@@ -64,6 +64,7 @@ export default function Navbar() {
   };
   const handleLogOut = () => {
     logOut();
+    setIsOpen(!isOpen);
     toast.success('LogOut Successfully');
     navigate('/');
   };
@@ -86,7 +87,7 @@ export default function Navbar() {
           </div>
 
           {/* Navbar Links */}
-          <div className="hidden md:flex flex-grow justify-center space-x-6">
+          <div className="hidden lg:flex flex-grow justify-center space-x-6">
             {navItem.map((item, index) => (
               <Link
                 key={index}
@@ -107,7 +108,7 @@ export default function Navbar() {
           </div>
 
           {/* Hire Me Button */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             {!user && (
               <Link to="/hire-me">
                 <button className="button font-lexend">
@@ -141,14 +142,14 @@ export default function Navbar() {
                 {isOpen && (
                   <div className="absolute rounded-xl shadow-md w-[40vw] md:w-[12vw] bg-white  text-black overflow-hidden right-0 top-12 text-sm">
                     <div className="flex flex-col cursor-pointer">
-                      <Link
-                        onClick={() => setIsOpen(!isOpen)}
-                        to="/"
-                        className="px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-                      >
-                        <FaHome />
-                        Add Skills
-                      </Link>
+                        <Link
+                          to="/add-skills"
+                          onClick={() => setIsOpen(!isOpen)}
+                          className="px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
+                        >
+                          <FaHome />
+                          Add Skills
+                        </Link>
                       <hr />
                       <Link
                         onClick={() => setIsOpen(!isOpen)}
@@ -176,18 +177,13 @@ export default function Navbar() {
                         Add Blogs
                       </Link>
                       <hr />
-                      <div
+                      <Link
                         onClick={handleLogOut}
-                        className="px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
+                        className="px-4 py-3 hover:bg-neutral-100 transition font-semibold gap-2 flex items-center"
                       >
-                        <Link
-                          onClick={() => setIsOpen(!isOpen)}
-                          className="flex items-center gap-2"
-                        >
-                          <IoLogOut />
-                          Logout
-                        </Link>
-                      </div>
+                        <IoLogOut />
+                        Logout
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -196,7 +192,7 @@ export default function Navbar() {
           </div>
 
           {/* Hamburger Menu */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             {!user ? (
               <button
                 type="button"
@@ -227,13 +223,13 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className="md:hidden">
+      <div className="lg:hidden">
         {isOpen && (
           <div className="absolute rounded-xl shadow-md w-[40vw] md:w-[16vw] bg-white  text-black overflow-hidden right-2 top-16 text-sm">
             <div className="flex flex-col cursor-pointer">
               <Link
                 onClick={() => setIsOpen(!isOpen)}
-                to="/"
+                to="/add-skills"
                 className="px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
               >
                 <FaHome />
@@ -266,18 +262,14 @@ export default function Navbar() {
                 Add Blogs
               </Link>
               <hr />
-              <div
+
+              <Link
                 onClick={handleLogOut}
                 className="px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
               >
-                <Link
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="flex items-center gap-2"
-                >
-                  <IoLogOut />
-                  Logout
-                </Link>
-              </div>
+                <IoLogOut />
+                Logout
+              </Link>
             </div>
           </div>
         )}
@@ -291,16 +283,16 @@ export default function Navbar() {
           <ul className="space-y-2">
             <li>
               <Link
-                to="about"
+                to="home"
                 smooth
                 duration={500}
                 spy
                 activeClass="block text-[#1b1238] text-bold bg-secondary py-2 px-4 rounded-md transition duration-200"
-                className="block text-secondary hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                className="block  hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
                 offset={-70}
-                onClick={() => handleLinkClick('about')}
+                onClick={() => handleLinkClick('home')}
               >
-                About
+                Home
               </Link>
             </li>
             {navItem.map((item, index) => (
@@ -310,8 +302,8 @@ export default function Navbar() {
                   smooth
                   duration={500}
                   spy
-                  activeClass="block text-[#1b1238] text-bold bg-secondary py-2 px-4 rounded-md transition duration-200"
-                  className="block text-secondary capitalize hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
+                  activeClass="block text-[#1b1238] font-bold bg-secondary py-2 px-4 rounded-md transition duration-200"
+                  className="block capitalize hover:text-white py-2 px-4 rounded-md transition duration-200 active:bg-[#1b1238] hover:bg-[#3d2689]"
                   offset={-70}
                   onClick={() => handleLinkClick(`${item}`)}
                 >

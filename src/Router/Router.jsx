@@ -5,6 +5,7 @@ import Error from '../Pages/Error/Error';
 import ProjectDetails from '../components/ProjectDetails/ProjectDEtails';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
+import AddSkills from '../Pages/Dashboard/AddSkills/AddSkills';
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: '/sign-up',
         element: <SignUp/>
+      },
+      {
+        path: '/add-skills',
+        element: <AddSkills/>
       },
     ],
   },
