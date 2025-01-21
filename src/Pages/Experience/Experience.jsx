@@ -16,7 +16,6 @@ const Experience = () => {
       try {
         const response = await fetch('http://localhost:5000/experience');
         const data = await response.json();
-        console.log(data);
         setExperienceData(data);
       } catch (error) {
         console.error('Error fetching experience data:', error);

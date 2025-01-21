@@ -4,29 +4,30 @@ import './Skill.css';
 import SkillModal from '../Modal/SkillModal';
 function Skill({ skill }) {
   let [isOpen, setIsOpen] = useState(false);
+  console.log(skill,'skill is open')
   return (
     <div className="grid grid-cols-7 gap-2 md:gap-3 text-secondary backdrop-blur-lg bg-[#695E9F]/50 items-center rounded-xl p-3 md:p-4">
       <div className="col-span-2">
         <img
           className="w-32 object-cover rounded-xl hover:scale-105 duration-300 animate-pulse"
-          src={skill?.image}
+          src={skill?.Image}
           alt=""
         />
       </div>
       <div className="col-span-5">
         <h2 className="text-xl font-semibold">
           <span className="text-[#DC143C] font-bold">
-            {skill.title.charAt(0)}
+            {skill?.SkillTitle?.charAt(0)}
           </span>
-          {skill.title.slice(1)}
+          {skill?.SkillTitle?.slice(1)}
         </h2>
 
         <hr className="border-b border-[#675C9C]" />
         <p className="text-sm my-2">
           Description:{' '}
-          {skill?.description?.length > 50
-            ? `${skill.description.slice(0, 50)}...`
-            : skill?.description}
+          {skill?.SkillDescription?.length > 50
+            ? `${skill.SkillDescription.slice(0, 50)}...`
+            : skill?.SkillDescription}
         </p>
 
         <button

@@ -12,6 +12,7 @@ import { MdPermContactCalendar } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
 import { IoLogOut } from 'react-icons/io5';
 import avatarImg from '../../assets/placeholder.jpg';
+import AdminNavbar from './AdminNavbar';
 
 export default function Navbar() {
   const { user, logOut } = useAuth();
@@ -140,52 +141,11 @@ export default function Navbar() {
                   </div>
                 </div>
                 {isOpen && (
-                  <div className="absolute rounded-xl shadow-md w-[40vw] md:w-[12vw] bg-white  text-black overflow-hidden right-0 top-12 text-sm">
-                    <div className="flex flex-col cursor-pointer">
-                        <Link
-                          to="/add-skills"
-                          onClick={() => setIsOpen(!isOpen)}
-                          className="px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-                        >
-                          <FaHome />
-                          Add Skills
-                        </Link>
-                      <hr />
-                      <Link
-                        onClick={() => setIsOpen(!isOpen)}
-                        to="/about-us"
-                        className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-                      >
-                        <FaUser />
-                        Add Experience
-                      </Link>
-                      <hr />
-                      <Link
-                        onClick={() => setIsOpen(!isOpen)}
-                        to="/contact-us"
-                        className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-                      >
-                        <MdPermContactCalendar />
-                        Add Projects
-                      </Link>
-                      <Link
-                        onClick={() => setIsOpen(!isOpen)}
-                        to="/contact-us"
-                        className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-                      >
-                        <MdPermContactCalendar />
-                        Add Blogs
-                      </Link>
-                      <hr />
-                      <Link
-                        onClick={handleLogOut}
-                        className="px-4 py-3 hover:bg-neutral-100 transition font-semibold gap-2 flex items-center"
-                      >
-                        <IoLogOut />
-                        Logout
-                      </Link>
-                    </div>
-                  </div>
+                  <AdminNavbar
+                    setIsOpen={setIsOpen}
+                    isOpen={isOpen}
+                    handleLogOut={handleLogOut}
+                  />
                 )}
               </div>
             )}

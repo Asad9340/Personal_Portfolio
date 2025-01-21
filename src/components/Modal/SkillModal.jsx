@@ -28,23 +28,26 @@ function SkillModal({ isOpen, setIsOpen, skill }) {
                 as="h2"
                 className="text-xl font-medium text-white flex justify-between items-center"
               >
-                <span> Title: {skill.title}</span>
-                <span onClick={close} className='border p-2 rounded-full hover:scale-110 duration-300 ease-in-out hover:bg-red-500 hover:border-red-500'>
+                <span> Title: {skill.SkillTitle}</span>
+                <span
+                  onClick={close}
+                  className="border p-2 rounded-full hover:scale-110 duration-300 ease-in-out hover:bg-red-500 hover:border-red-500"
+                >
                   <RxCross2 />
                 </span>
               </DialogTitle>
               <hr className="mt-2 border-b border-[#695E9F]" />
               <p className="mt-2 text-sm/6 text-white">
-                <strong>Description:</strong> {skill?.description}
+                <strong>Description:</strong> {skill?.SkillDescription}
               </p>
               <p className="mt-2 text-sm/6 text-white">
-                <strong>Experience:</strong> {skill?.experience}
+                <strong>Experience:</strong> {skill?.Experience}
               </p>
 
               <div className="mt-4 text-sm/6 text-white">
                 <strong>Projects:</strong>
                 <ul className="list-disc list-inside mt-1">
-                  {skill?.projects?.map((project, index) => (
+                  {skill?.Projects?.map((project, index) => (
                     <li key={index}>
                       <strong>{project.name}:</strong> {project.description}
                     </li>
@@ -55,7 +58,7 @@ function SkillModal({ isOpen, setIsOpen, skill }) {
               <div className="mt-4 text-sm/6 text-white">
                 <strong>Certifications:</strong>
                 <ul className="list-disc list-inside mt-1">
-                  {skill?.certifications?.map((certification, index) => (
+                  {skill?.Certifications?.map((certification, index) => (
                     <li key={index}>{certification}</li>
                   ))}
                 </ul>
@@ -64,23 +67,11 @@ function SkillModal({ isOpen, setIsOpen, skill }) {
               <div className="mt-4 text-sm/6 text-white">
                 <strong>Libraries & Tools:</strong>
                 <ul className="list-disc list-inside mt-1">
-                  {skill?.librariesAndTools?.map((tool, index) => (
+                  {skill?.Tools?.map((tool, index) => (
                     <li key={index}>{tool}</li>
                   ))}
                 </ul>
               </div>
-
-              {skill?.achievements && (
-                <div className="mt-4 text-sm/6 text-white">
-                  <strong>Achievements:</strong>
-                  <ul className="list-disc list-inside mt-1">
-                    {skill?.achievements?.map((achievement, index) => (
-                      <li key={index}>{achievement}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
               <div className="mt-4">
                 <Button
                   className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
