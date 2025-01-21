@@ -6,6 +6,7 @@ import ProjectDetails from '../components/ProjectDetails/ProjectDEtails';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
 import AddSkills from '../Pages/Dashboard/AddSkills/AddSkills';
+import UpdateSkills from '../Pages/Dashboard/UpdateSkills';
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: '/add-skills',
         element: <AddSkills/>
+      },
+      {
+        path: '/update/:id',
+        element: <UpdateSkills/>
       },
     ],
   },

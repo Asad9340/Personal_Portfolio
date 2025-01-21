@@ -87,8 +87,6 @@ const AddSkills = () => {
     };
     if (imageUrl) {
       try {
-        console.log(formData);
-
         const response = await fetch('http://localhost:5000/add-skills', {
           method: 'POST',
           headers: {
@@ -97,17 +95,21 @@ const AddSkills = () => {
           body: JSON.stringify(formData),
         });
         if (response.ok) {
-          console.log(response,'response')
           const data = await response.json();
-             if (data.insertedId) {
-               Swal.fire({
-                 title: 'Success!',
-                 text: 'Added New Coffee',
-                 icon: 'success',
-                 confirmButtonText: 'Added',
-               });
-              //  form.reset();
-             }
+          if (data.insertedId) {
+            Swal.fire({
+              title: 'Success!',
+              text: 'Added New Skills',
+              icon: 'success',
+              confirmButtonText: 'Added',
+            });
+            // Reset form after successful submission
+            e.target.reset();
+            setProjects([{ name: '', description: '' }]);
+            setCertifications(['']);
+            setTools(['']);
+            setImage(null);
+          }
         } else {
           Swal.fire({
             icon: 'error',

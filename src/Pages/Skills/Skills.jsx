@@ -4,10 +4,12 @@ import 'react-responsive-pagination/themes/classic.css';
 import Skill from '../../components/Skill/Skill';
 import './Skills.css';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
+import Swal from 'sweetalert2';
 const Skills = () => {
-  const pagePerView = 6;
   const [currentPage, setCurrentPage] = useState(1);
   const [skills, setSkills] = useState([]);
+  const [refresh, setRefresh] = useState(false);
+  const pagePerView = 6;
 
   useEffect(() => {
     const fetchSkills = async () => {
@@ -16,7 +18,7 @@ const Skills = () => {
       setSkills(data);
     };
     fetchSkills();
-  }, []);
+  }, [refresh]);
 
   const totalPages = Math.ceil(skills.length / pagePerView);
   const indexOfLastSkill = currentPage * pagePerView;
@@ -26,6 +28,52 @@ const Skills = () => {
   function handlePageChange(page) {
     setCurrentPage(page);
   }
+  const handleSkillDelete = id => {
+    console.log(id, 'id');
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(async result => {
+      if (result.isConfirmed) {
+        try {
+          const response = await fetch(
+            `http://localhost:5000/skill/delete/${id}`,
+            {
+              method: 'DELETE',
+            }
+          );
+          const data = await response.json();
+          console.log(data, 'dat');
+          if (data.deletedCount) {
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'Your Skill has been deleted.',
+              icon: 'success',
+            });
+            setRefresh(prev => !prev);
+          } else {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Failed to delete the Skill.',
+              icon: 'error',
+            });
+          }
+        } catch (error) {
+          console.error('Error deleting skill:', error);
+          Swal.fire({
+            title: 'Error!',
+            text: 'An error occurred while deleting the skill.',
+            icon: 'error',
+          });
+        }
+      }
+    });
+  };
   if (!skills) {
     return <LoadingSpinner />;
   }
@@ -47,7 +95,7 @@ const Skills = () => {
               className="card duration-500 cursor-pointer hover:scale-105"
               key={index}
             >
-              <Skill skill={skill} />
+              <Skill skill={skill} handleSkillDelete={handleSkillDelete} />
             </div>
           ))}
         </div>
