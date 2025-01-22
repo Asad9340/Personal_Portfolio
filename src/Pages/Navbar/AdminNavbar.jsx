@@ -20,7 +20,7 @@ const AdminNavbar = ({ setIsOpen, isOpen, handleLogOut }) => {
           <hr />
           <Link
             onClick={() => setIsOpen(!isOpen)}
-            to="/about-us"
+            to="/add-experience"
             className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
           >
             <FaUser />

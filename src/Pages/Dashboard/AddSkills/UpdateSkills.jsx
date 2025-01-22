@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import { imgbbImageUpload } from '../../api/utils/imageUpload';
 import { useNavigate, useParams } from 'react-router-dom';
+import { imgbbImageUpload } from '../../../api/utils/imageUpload';
 
 const UpdateSkills = () => {
   const [projects, setProjects] = useState([{ name: '', description: '' }]);
@@ -191,15 +191,7 @@ const UpdateSkills = () => {
             )}
           </div>
 
-          {/* <div>
-            <input
-              className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
-              type="file"
-              name="image"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-          </div> */}
+          
           <div className="flex items-start gap-4">
             {/* Image Input */}
             <div className='w-full'>

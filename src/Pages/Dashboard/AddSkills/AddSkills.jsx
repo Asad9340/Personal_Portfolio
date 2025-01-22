@@ -134,7 +134,7 @@ const AddSkills = () => {
           Add Skills and Its Description
         </h1>
         <div className="space-y-4">
-          <div className="w-full flex gap-4">
+          <div className="w-full flex flex-col md:flex-row gap-4">
             <div className="w-full">
               <input
                 className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
@@ -333,7 +333,7 @@ const AddSkills = () => {
 
           <div className="flex justify-center mt-8">
             <button
-              className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-60"
+              className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full"
               type="submit"
             >
               Add Skill

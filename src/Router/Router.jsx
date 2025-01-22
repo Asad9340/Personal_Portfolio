@@ -6,7 +6,9 @@ import ProjectDetails from '../components/ProjectDetails/ProjectDEtails';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
 import AddSkills from '../Pages/Dashboard/AddSkills/AddSkills';
-import UpdateSkills from '../Pages/Dashboard/UpdateSkills';
+import AddExperience from '../Pages/Dashboard/AddExperience/AddExperience';
+import UpdateSkills from '../Pages/Dashboard/AddSkills/UpdateSkills';
+import UpdateExperience from '../Pages/Dashboard/AddExperience/UpdateExperience';
 
 export const router = createBrowserRouter([
   {
@@ -28,15 +30,23 @@ export const router = createBrowserRouter([
       },
       {
         path: '/sign-up',
-        element: <SignUp/>
+        element: <SignUp />,
       },
       {
         path: '/add-skills',
-        element: <AddSkills/>
+        element: <AddSkills />,
       },
       {
         path: '/update/:id',
-        element: <UpdateSkills/>
+        element: <UpdateSkills />,
+      },
+      {
+        path: '/add-experience',
+        element: <AddExperience/>
+      },
+      {
+        path: '/update-experience/:id',
+        element: <UpdateExperience/>
       },
     ],
   },
