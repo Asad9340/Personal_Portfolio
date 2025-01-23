@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { imgbbImageUpload } from '../../../api/utils/imageUpload';
+import Swal from 'sweetalert2';
+import { ImSpinner9 } from 'react-icons/im';
 
 const AddProjectsPage = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +17,7 @@ const AddProjectsPage = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
-  const [, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e, fieldName, index = null) => {
     const { name, value, files } = e.target;
@@ -86,7 +89,7 @@ const AddProjectsPage = () => {
     }
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = async e => {
     e.preventDefault();
 
     // Validation logic
@@ -112,32 +115,67 @@ const AddProjectsPage = () => {
 
     if (Object.keys(errors).length === 0) {
       setIsSubmitted(true);
+      const bannerImg = await imgbbImageUpload(formData.projectBannerImage);
+      let imgCollection = [];
+      for (let i = 0; i < formData.projectGeneralImages?.length; i++) {
+        imgCollection[i] = await imgbbImageUpload(
+          formData.projectGeneralImages[i]
+        );
+      }
       const projectData = {
         title: formData.title,
         description: formData.description,
-        bannerImage: formData.projectBannerImage,
-        generalImages: formData.projectGeneralImages,
+        bannerImage: bannerImg,
+        allImages: [bannerImg, ...imgCollection],
         highlights: formData.projectHighlights,
         links: formData.projectLinks,
         additionalFeatures: formData.additionalFeatures,
         usedTechnologies: formData.usedTechnologies,
       };
 
-      // Example of form data logging (you can replace this with actual submission logic):
       console.log('Project Data Submitted: ', projectData);
-
-      // Reset form after submission (optional)
-      setFormData({
-        title: '',
-        description: '',
-        projectImages: [],
-        projectBannerImage: null,
-        projectGeneralImages: [],
-        projectHighlights: [''],
-        projectLinks: { live: '', client: '', server: '' },
-        additionalFeatures: [''],
-        usedTechnologies: [''],
-      });
+      try {
+        const response = await fetch('http://localhost:5000/add-project', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(projectData),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          if (data.insertedId) {
+            Swal.fire({
+              title: 'Success!',
+              text: 'Added New Project',
+              icon: 'success',
+              confirmButtonText: 'Added',
+            });
+            setIsSubmitted(false);
+            // Reset form after successful submission
+            setFormData({
+              title: '',
+              description: '',
+              projectImages: [],
+              projectBannerImage: null,
+              projectGeneralImages: [],
+              projectHighlights: [''],
+              projectLinks: { live: '', client: '', server: '' },
+              additionalFeatures: [''],
+              usedTechnologies: [''],
+            });
+          }
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<Link to="/add-projects">Why do I have this issue?</Link>',
+          });
+        }
+      } catch (error) {
+        console.error('Error in submission:', error);
+      }
     }
   };
 
@@ -300,7 +338,7 @@ const AddProjectsPage = () => {
               Used Technologies <span className="text-red-500">*</span>
             </label>
             {formData.usedTechnologies.map((tech, index) => (
-              <div key={index} className="flex items-center gap-4">
+              <div key={index} className="flex items-center gap-4 mb-2">
                 <input
                   className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                     formErrors[`technology${index}`] ? 'border-red-500' : ''
@@ -333,7 +371,7 @@ const AddProjectsPage = () => {
           </div>
 
           {/* Project Links */}
-          <div>
+          <div className="border-2 p-4 rounded-lg">
             <label className="block text-gray-700 font-medium">
               Project Links
             </label>
@@ -419,7 +457,7 @@ const AddProjectsPage = () => {
             <button
               type="button"
               onClick={() => handleAddField('additionalFeatures')}
-              className="bg-[#010127] text-white px-4 py-2 rounded-lg hover:bg-opacity-90"
+              className="bg-[#010127] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 mt-1"
             >
               + Add More Feature
             </button>
@@ -427,9 +465,9 @@ const AddProjectsPage = () => {
 
           <button
             type="submit"
-            className="bg-[#010127] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 w-full mt-6"
+            className="bg-[#010127] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 w-full mt-6 flex justify-center"
           >
-            Submit Project
+            {isSubmitted ? <ImSpinner9 className='animate-spin' /> : 'Submit Project'}
           </button>
         </div>
       </form>

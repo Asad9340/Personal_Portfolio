@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import './ProjectDetails.css';
 import { FaArrowLeft } from 'react-icons/fa';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -26,9 +27,9 @@ const ProjectDetails = () => {
 
     fetchProjectDetails();
   }, [id]);
-
+console.log(projectData)
   if (loading) {
-    return <div className="text-center my-10">Loading...</div>;
+    return <LoadingSpinner/>
   }
 
   if (!projectData) {
@@ -42,9 +43,9 @@ const ProjectDetails = () => {
   const {
     title,
     description,
-    images,
+    allImages,
     highlights,
-    technologies,
+    usedTechnologies,
     links,
     additionalFeatures,
   } = projectData;
@@ -63,9 +64,9 @@ const ProjectDetails = () => {
         </div>
       )}
 
-      {images && images.length > 0 && (
+      {allImages && allImages.length > 0 && (
         <div>
-          <ImageCarousel images={images} />
+          <ImageCarousel images={allImages} />
         </div>
       )}
 
@@ -91,13 +92,13 @@ const ProjectDetails = () => {
         </div>
       )}
 
-      {technologies && technologies.length > 0 && (
+      {usedTechnologies && usedTechnologies.length > 0 && (
         <div className="mt-10">
           <h3 className="text-2xl font-bold text-gray-800">
             Technologies Used
           </h3>
           <div className="flex flex-wrap gap-4 mt-4">
-            {technologies.map((tech, index) => (
+            {usedTechnologies.map((tech, index) => (
               <p
                 key={index}
                 className="bg-gray-200 px-6 py-3 rounded-lg shadow text-gray-700 hover:scale-105 duration-200 ease-in-out"
@@ -117,7 +118,7 @@ const ProjectDetails = () => {
               <button className="clientButton">
                 <span>
                   <a
-                    href={links.liveDemo}
+                    href={links.live}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -126,11 +127,11 @@ const ProjectDetails = () => {
                 </span>
               </button>
             )}
-            {links.clientCode && (
+            {links.client && (
               <button className="clientButton">
                 <span>
                   <a
-                    href={links.clientCode}
+                    href={links.client}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -139,11 +140,11 @@ const ProjectDetails = () => {
                 </span>
               </button>
             )}
-            {links.serverCode && (
+            {links.server && (
               <button className="clientButton">
                 <span>
                   <a
-                    href={links.serverCode}
+                    href={links.server}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

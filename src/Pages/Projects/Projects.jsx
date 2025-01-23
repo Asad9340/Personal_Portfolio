@@ -34,10 +34,8 @@ const Projects = () => {
               id={project._id}
               title={project.title}
               description={project.description}
-              images={project.images}
-              liveSite={project.liveSite}
-              clientCode={project.clientCode}
-              serverCode={project.serverCode}
+              links={project.links}
+              banner={project.bannerImage}
             />
           ))}
         </div>
