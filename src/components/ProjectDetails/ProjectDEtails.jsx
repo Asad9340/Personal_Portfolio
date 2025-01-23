@@ -13,10 +13,9 @@ const ProjectDetails = () => {
     const fetchProjectDetails = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/Data/projects.json`);
+        const response = await fetch(`http://localhost:5000/project/${id}`);
         const data = await response.json();
-        const specificData = data.filter(item => item.id == id);
-        setProjectData(specificData[0]);
+        setProjectData(data);
       } catch (error) {
         console.error('Error fetching project details:', error);
         setProjectData(null);

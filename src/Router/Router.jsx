@@ -2,13 +2,14 @@ import { createBrowserRouter } from 'react-router-dom';
 import Root from '../Layout/Root';
 import Home from '../Pages/Home/Home';
 import Error from '../Pages/Error/Error';
-import ProjectDetails from '../components/ProjectDetails/ProjectDEtails';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
 import AddSkills from '../Pages/Dashboard/AddSkills/AddSkills';
 import AddExperience from '../Pages/Dashboard/AddExperience/AddExperience';
 import UpdateSkills from '../Pages/Dashboard/AddSkills/UpdateSkills';
 import UpdateExperience from '../Pages/Dashboard/AddExperience/UpdateExperience';
+import AddProjects from '../Pages/Dashboard/AddProjects/AddProjects';
+import ProjectDetails from '../components/ProjectDetails/ProjectDetails';
 
 export const router = createBrowserRouter([
   {
@@ -42,11 +43,15 @@ export const router = createBrowserRouter([
       },
       {
         path: '/add-experience',
-        element: <AddExperience/>
+        element: <AddExperience />,
       },
       {
         path: '/update-experience/:id',
-        element: <UpdateExperience/>
+        element: <UpdateExperience />,
+      },
+      {
+        path: '/add-projects',
+        element: <AddProjects />,
       },
     ],
   },

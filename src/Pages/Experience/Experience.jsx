@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { FaLaptopCode, FaLocationDot } from 'react-icons/fa6';
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
-import { RiHomeOfficeFill } from 'react-icons/ri';
 import 'react-vertical-timeline-component/style.min.css';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import useAuth from './../../hooks/useAuth';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { FaLocationDot } from 'react-icons/fa6';
+import './Experience.css'
 const Experience = () => {
   const [experienceData, setExperienceData] = useState([]);
   const { user } = useAuth();
@@ -104,17 +104,17 @@ const Experience = () => {
               iconStyle={{ background: '#675C9C', color: '#FFF' }}
               icon={
                 <img
-                  className="flex justify-center items-center"
+                  className="flex justify-center items-center rounded-full w-full object-cover "
                   src={experience.CompanyLogo}
                   alt={experience.Role}
                 />
               }
             >
-              <h3 className="vertical-timeline-element-title text-2xl font-semibold text-secondary flex items-center gap-1">
-                <FaLaptopCode size={16} /> {experience.Role}
+              <h3 className="vertical-timeline-element-title text-2xl font-semibold text-secondary ">
+                {experience.Role}
               </h3>
-              <h3 className="vertical-timeline-element-subtitle text-secondary text-lg flex items-center gap-1">
-                <RiHomeOfficeFill /> {experience?.CompanyName}
+              <h3 className="vertical-timeline-element-subtitle text-secondary text-lg">
+                {experience?.CompanyName}
               </h3>
               <h4 className="vertical-timeline-element-subtitle text-secondary flex items-center gap-1">
                 <FaLocationDot size={14} />
@@ -164,17 +164,17 @@ const Experience = () => {
               iconStyle={{ background: '#675C9C', color: '#fff' }}
               icon={
                 <img
-                  className="flex justify-center items-center"
+                  className="flex justify-center items-center rounded-full w-full object-cover "
                   src={experience.CompanyLogo}
                   alt={experience.Role}
                 />
               }
             >
-              <h3 className="vertical-timeline-element-title text-2xl font-semibold flex items-center gap-1">
-                <FaLaptopCode size={16} /> {experience.Role}
+              <h3 className="vertical-timeline-element-title text-2xl font-semibold">
+                {experience.Role}
               </h3>
-              <h3 className="vertical-timeline-element-subtitle text-lg flex items-center gap-1">
-                <RiHomeOfficeFill /> {experience?.CompanyName}
+              <h3 className="vertical-timeline-element-subtitle text-lg ">
+                {experience?.CompanyName}
               </h3>
               <h4 className="vertical-timeline-element-subtitle flex items-center gap-1">
                 <FaLocationDot size={14} />

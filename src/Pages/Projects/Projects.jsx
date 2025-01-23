@@ -31,7 +31,7 @@ const Projects = () => {
           {projects.map(project => (
             <Project
               key={project._id}
-              id={project.id}
+              id={project._id}
               title={project.title}
               description={project.description}
               images={project.images}
