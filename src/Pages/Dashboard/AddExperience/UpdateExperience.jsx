@@ -7,17 +7,18 @@ import './AddExperience.css';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateExperience = () => {
-  const [skills, setSkills] = useState(['']); // Array of skills
+  const [skills, setSkills] = useState(['']); 
   const [classType, setClassType] = useState('inactive');
   const [companyLogo, setCompanyLogo] = useState(null);
   const [, setFormErrors] = useState({});
   const { id } = useParams();
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [experienceData, setExperienceData] = useState({
     fromDate: '',
     toDate: '',
     role: '',
     location: '',
+    companyName: '',
     description: '',
   });
 
@@ -30,14 +31,15 @@ const UpdateExperience = () => {
         const data = await response.json();
         if (data) {
           setExperienceData({
-            fromDate: new Date(data.FromDate), // Assuming the date is in a valid string format
+            fromDate: new Date(data.FromDate),
             toDate:
               data.ToDate === 'Present' ? 'Present' : new Date(data.ToDate),
             role: data.Role,
             location: data.Location,
+            companyName: data.CompanyName,
             description: data.Description,
           });
-          setSkills(data.Skills || ['']); // Populate skills from the data
+          setSkills(data.Skills || ['']);
           setClassType(data.classType || 'inactive');
           setCompanyLogo(data.CompanyLogo);
         }
@@ -54,7 +56,7 @@ const UpdateExperience = () => {
     if (e.target.value === 'active') {
       setExperienceData(prevState => ({
         ...prevState,
-        toDate: '', // Reset toDate when classType is active
+        toDate: '',
       }));
     }
   };
@@ -62,14 +64,15 @@ const UpdateExperience = () => {
   const handleFormSubmit = async e => {
     e.preventDefault();
     const errors = {};
-    const { fromDate, toDate, role, location, description } = experienceData;
+    const { fromDate, toDate, role, location, description, companyName } =
+      experienceData;
 
     if (!fromDate) errors.fromDate = 'From Date is required';
     if (!role) errors.role = 'Role is required';
     if (!location) errors.location = 'Location is required';
     if (!description) errors.description = 'Description is required';
     if (!companyLogo) errors.companyLogo = 'Company Logo is required';
-
+    if (!companyName) errors.companyName = 'Company Name is required';
     // Validate if at least one skill is entered
     if (skills.every(skill => skill.trim() === '')) {
       errors.skills = 'At least one skill is required';
@@ -107,8 +110,9 @@ const UpdateExperience = () => {
       ToDate: finalToDate,
       Role: role,
       Location: location,
+      CompanyName: companyName,
       Description: description,
-      Skills: skills.filter(skill => skill.trim() !== ''), // Ensure non-empty skills are sent
+      Skills: skills.filter(skill => skill.trim() !== ''),
       classType,
       CompanyLogo: logoUrl,
       MergedDate: mergedDate,
@@ -272,6 +276,27 @@ const UpdateExperience = () => {
             value={experienceData.role}
             onChange={e =>
               setExperienceData({ ...experienceData, role: e.target.value })
+            }
+            className="mt-2 w-full px-4 py-2 border rounded-md outline-none"
+          />
+        </div>
+        {/* Company Name */}
+        <div className="mb-4">
+          <label
+            htmlFor="companyName"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Company Name
+          </label>
+          <input
+            type="text"
+            id="companyName"
+            value={experienceData.companyName}
+            onChange={e =>
+              setExperienceData({
+                ...experienceData,
+                companyName: e.target.value,
+              })
             }
             className="mt-2 w-full px-4 py-2 border rounded-md outline-none"
           />

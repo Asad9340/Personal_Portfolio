@@ -4,16 +4,19 @@ import Swal from 'sweetalert2';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './AddExperience.css';
+import { useNavigate } from 'react-router-dom';
 const AddExperience = () => {
   const [skills, setSkills] = useState(['']);
-  const [classType, setClassType] = useState('inactive'); // Default value is inactive
+  const [classType, setClassType] = useState('inactive');
   const [companyLogo, setCompanyLogo] = useState(null);
   const [formErrors, setFormErrors] = useState({});
+  const navigate = useNavigate();
   const [experienceData, setExperienceData] = useState({
     fromDate: '',
     toDate: '',
     role: '',
     location: '',
+    companyName: '',
     description: '',
   });
 
@@ -58,13 +61,15 @@ const AddExperience = () => {
   const handleFormSubmit = async e => {
     e.preventDefault();
     const errors = {};
-    const { fromDate, toDate, role, location, description } = experienceData;
+    const { fromDate, toDate, role, location, description, companyName } =
+      experienceData;
 
     if (!fromDate) errors.fromDate = 'From Date is required';
     if (!role) errors.role = 'Role is required';
     if (!location) errors.location = 'Location is required';
     if (!description) errors.description = 'Description is required';
     if (!companyLogo) errors.companyLogo = 'Company Logo is required';
+    if (!companyName) errors.companyName = 'Company Name is required';
 
     // Validate if at least one skill is entered
     if (skills.every(skill => skill.trim() === '')) {
@@ -104,6 +109,7 @@ const AddExperience = () => {
       FromDate: fromDate,
       ToDate: finalToDate,
       Role: role,
+      CompanyName: companyName,
       Location: location,
       Description: description,
       Skills: skills.filter(skill => skill.trim() !== ''),
@@ -138,11 +144,13 @@ const AddExperience = () => {
             toDate: '',
             role: '',
             location: '',
+            companyName: '',
             description: '',
           });
           setSkills(['']);
           setCompanyLogo(null);
-          setClassType('inactive'); // Reset classType to inactive
+          setClassType('inactive');
+          navigate('/');
         }
       } else {
         Swal.fire({
@@ -195,6 +203,29 @@ const AddExperience = () => {
               Active
             </label>
           </div>
+        </div>
+        {/* Company Name */}
+        <div className="mt-4">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="companyName"
+          >
+            Company Name
+          </label>
+          <input
+            id="companyName"
+            className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
+              formErrors.companyName ? 'border-red-500' : ''
+            }`}
+            type="text"
+            name="companyName"
+            placeholder="Enter Company Name"
+            value={experienceData.companyName}
+            onChange={handleInputChange}
+          />
+          {formErrors.companyName && (
+            <p className="text-red-500 text-sm">{formErrors.companyName}</p>
+          )}
         </div>
 
         {/* From Date */}
