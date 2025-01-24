@@ -28,14 +28,11 @@ const Projects = () => {
           </h2>
         </div>
         <div>
-          {projects.map(project => (
+          {projects.map((project, index) => (
             <Project
               key={project._id}
-              id={project._id}
-              title={project.title}
-              description={project.description}
-              links={project.links}
-              banner={project.bannerImage}
+              id={index + 1}
+              project={project}
             />
           ))}
         </div>

@@ -45,7 +45,7 @@ function Skill({ skill, handleSkillDelete }) {
           {user && (
             <div className="flex gap-2">
               {/* Update Button */}
-              <Link to={`update/${skill._id}`}>
+              <Link to={`update-skill/${skill._id}`}>
                 <button className="bg-[#675C9C] text-white px-2 py-2 rounded-md hover:bg-[#443d69] focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm duration-300">
                   Update
                 </button>

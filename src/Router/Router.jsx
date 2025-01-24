@@ -10,6 +10,7 @@ import UpdateSkills from '../Pages/Dashboard/AddSkills/UpdateSkills';
 import UpdateExperience from '../Pages/Dashboard/AddExperience/UpdateExperience';
 import AddProjects from '../Pages/Dashboard/AddProjects/AddProjects';
 import ProjectDetails from '../components/ProjectDetails/ProjectDetails';
+import UpdateProject from '../Pages/Dashboard/AddProjects/UpdateProject';
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
         element: <AddSkills />,
       },
       {
-        path: '/update/:id',
+        path: '/update-skill/:id',
         element: <UpdateSkills />,
       },
       {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
       {
         path: '/add-projects',
         element: <AddProjects />,
+      },
+      {
+        path: '/update-project/:id',
+        element: <UpdateProject/>
       },
     ],
   },

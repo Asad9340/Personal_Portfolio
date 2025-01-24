@@ -1,8 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
-function Project({ id, title, description, links, banner }) {
-
+function Project({ project, id }) {
+  const { user } = useAuth();
+  const { bannerImage, title, description, links } = project;
+  const handleSkillDelete = id => {
+    console.log(id);
+  };
   return (
     <div
       className={`flex gap-4 md:gap-8 m-3 items-center justify-center text-white mt-6 md:mt-10 p-4 md:p-6 rounded-3xl backdrop-blur-md bg-white/15 ${
@@ -11,7 +16,7 @@ function Project({ id, title, description, links, banner }) {
     >
       <div className="flex-1">
         <img
-          src={banner}
+          src={bannerImage}
           className="w-[400px] md:w-full h-[200px] md:h-[300px] object-cover hover:scale-105 rounded-3xl ease-in-out duration-500"
           alt={title}
         />
@@ -55,15 +60,35 @@ function Project({ id, title, description, links, banner }) {
             Server
           </a>
         </div>
-        <div className="mt-3 md:mt-4">
-          <button className="viewMore learn-more border">
-            <span className="circle" aria-hidden="true">
-              <span className="icon arrow"></span>
-            </span>
-            <Link to={`/project-details/${id}`} className="button-text">
-              View Details
-            </Link>
-          </button>
+        <div className="mt-3 md:mt-4 flex flex-wrap justify-between items-center">
+          <div>
+            <button className="viewMore learn-more border">
+              <span className="circle" aria-hidden="true">
+                <span className="icon arrow"></span>
+              </span>
+              <Link to={`/project-details/${id}`} className="button-text">
+                View Details
+              </Link>
+            </button>
+          </div>
+          {user && (
+            <div className="flex gap-2">
+              {/* Update Button */}
+              <Link to={`update-project/${project._id}`}>
+                <button className="bg-[#675C9C] text-white px-2 py-2 rounded-md hover:bg-[#443d69] focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm duration-300">
+                  Update
+                </button>
+              </Link>
+
+              {/* Delete Button */}
+              <button
+                onClick={() => handleSkillDelete(project?._id)}
+                className="bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 text-sm duration-300"
+              >
+                Delete
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
