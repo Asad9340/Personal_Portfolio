@@ -119,13 +119,16 @@ const AddExperience = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/add-new-experience', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(fromData),
-      });
+      const response = await fetch(
+        'https://portfolio-server-sigma-mocha.vercel.app/add-new-experience',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(fromData),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

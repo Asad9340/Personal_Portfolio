@@ -7,7 +7,7 @@ import './AddExperience.css';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateExperience = () => {
-  const [skills, setSkills] = useState(['']); 
+  const [skills, setSkills] = useState(['']);
   const [classType, setClassType] = useState('inactive');
   const [companyLogo, setCompanyLogo] = useState(null);
   const [, setFormErrors] = useState({});
@@ -26,7 +26,7 @@ const UpdateExperience = () => {
     const fetchExperienceData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/get-experience/${id}`
+          `https://portfolio-server-sigma-mocha.vercel.app/get-experience/${id}`
         );
         const data = await response.json();
         if (data) {
@@ -120,7 +120,7 @@ const UpdateExperience = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/experience/update/${id}`,
+        `https://portfolio-server-sigma-mocha.vercel.app/experience/update/${id}`,
         {
           method: 'PUT',
           headers: {

@@ -37,7 +37,7 @@ const AdminNavbar = ({ setIsOpen, isOpen, handleLogOut }) => {
           </Link>
           <Link
             onClick={() => setIsOpen(!isOpen)}
-            to="/contact-us"
+            to="/add-blog"
             className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
           >
             <MdPermContactCalendar />

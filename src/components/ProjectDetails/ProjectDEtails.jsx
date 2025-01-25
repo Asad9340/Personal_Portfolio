@@ -14,7 +14,9 @@ const ProjectDetails = () => {
     const fetchProjectDetails = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/project/${id}`);
+        const response = await fetch(
+          `https://portfolio-server-sigma-mocha.vercel.app/project/${id}`
+        );
         const data = await response.json();
         setProjectData(data);
       } catch (error) {
@@ -27,9 +29,9 @@ const ProjectDetails = () => {
 
     fetchProjectDetails();
   }, [id]);
-console.log(projectData)
+  console.log(projectData);
   if (loading) {
-    return <LoadingSpinner/>
+    return <LoadingSpinner />;
   }
 
   if (!projectData) {

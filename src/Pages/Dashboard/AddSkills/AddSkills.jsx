@@ -87,13 +87,16 @@ const AddSkills = () => {
     };
     if (imageUrl) {
       try {
-        const response = await fetch('http://localhost:5000/add-skills', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
+        const response = await fetch(
+          'https://portfolio-server-sigma-mocha.vercel.app/add-skills',
+          {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           if (data.insertedId) {

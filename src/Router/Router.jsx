@@ -11,6 +11,8 @@ import UpdateExperience from '../Pages/Dashboard/AddExperience/UpdateExperience'
 import AddProjects from '../Pages/Dashboard/AddProjects/AddProjects';
 import ProjectDetails from '../components/ProjectDetails/ProjectDetails';
 import UpdateProject from '../Pages/Dashboard/AddProjects/UpdateProject';
+import AddBlog from '../Pages/Dashboard/AddBlog/AddBlog';
+import UpdateBlog from '../Pages/Dashboard/AddBlog/UpdateBlog';
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +60,14 @@ export const router = createBrowserRouter([
         path: '/update-project/:id',
         element: <UpdateProject/>
       },
+      {
+        path: '/add-blog',
+        element:<AddBlog/>
+      },
+      {
+        path: '/update-blog/:id',
+        element:<UpdateBlog/>
+      }
     ],
   },
 ]);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import { imgbbImageUpload } from '../../../api/utils/imageUpload';
@@ -20,16 +20,19 @@ const UpdateProject = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchProjectData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/project/${id}`);
+        const response = await fetch(
+          `https://portfolio-server-sigma-mocha.vercel.app/project/${id}`
+        );
         const data = await response.json();
         setFormData({
           title: data.title || '',
           description: data.description || '',
           projectBannerImage: data.bannerImage || null,
-          projectGeneralImages:data.allImages || [],
+          projectGeneralImages: data.allImages || [],
           projectHighlights: data.highlights || ['', ''],
           projectLinks: data.links || {
             live: '',
@@ -121,7 +124,7 @@ const UpdateProject = () => {
 
   const handleFormSubmit = async e => {
     e.preventDefault();
-
+    console.log(formData);
     // Validation logic
     let errors = {};
     if (!formData.title) errors.title = 'Project title is required.';
@@ -145,12 +148,25 @@ const UpdateProject = () => {
 
     if (Object.keys(errors).length === 0) {
       setIsSubmitted(true);
-      const bannerImg = await imgbbImageUpload(formData.projectBannerImage);
-      let imgCollection = [];
-      for (let i = 0; i < formData.projectGeneralImages?.length; i++) {
-        imgCollection[i] = await imgbbImageUpload(
-          formData.projectGeneralImages[i]
-        );
+      let bannerImg = formData.projectBannerImage;
+      let imgCollection = [...formData.projectGeneralImages];
+
+      // Check if the banner image has been updated
+      if (formData.projectBannerImage instanceof File) {
+        bannerImg = await imgbbImageUpload(formData.projectBannerImage);
+      }
+      // Check if general images have been updated
+      if (formData.projectGeneralImages.some(img => img instanceof File)) {
+        imgCollection = [];
+        for (let i = 0; i < formData.projectGeneralImages.length; i++) {
+          if (formData.projectGeneralImages[i] instanceof File) {
+            imgCollection[i] = await imgbbImageUpload(
+              formData.projectGeneralImages[i]
+            );
+          } else {
+            imgCollection[i] = formData.projectGeneralImages[i];
+          }
+        }
       }
       const projectData = {
         title: formData.title,
@@ -165,44 +181,32 @@ const UpdateProject = () => {
 
       console.log('Project Data Submitted: ', projectData);
       try {
-        const response = await fetch('http://localhost:5000/add-project', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify(projectData),
-        });
-        if (response.ok) {
-          const data = await response.json();
-          if (data.insertedId) {
-            Swal.fire({
-              title: 'Success!',
-              text: 'Added New Project',
-              icon: 'success',
-              confirmButtonText: 'Added',
-            });
-            setIsSubmitted(false);
-            // Reset form after successful submission
-            setFormData({
-              title: '',
-              description: '',
-              projectImages: [],
-              projectBannerImage: null,
-              projectGeneralImages: [],
-              projectHighlights: [''],
-              projectLinks: { live: '', client: '', server: '' },
-              additionalFeatures: [''],
-              usedTechnologies: [''],
-            });
+        const response = await fetch(
+          `https://portfolio-server-sigma-mocha.vercel.app/update-project/${id}`,
+          {
+            method: 'PUT',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(projectData),
           }
+        );
+        if (response.ok) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Skill updated successfully!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
+          navigate('/');
         } else {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Something went wrong!',
-            footer: '<Link to="/add-projects">Why do I have this issue?</Link>',
           });
         }
+        setIsSubmitted(false);
       } catch (error) {
         console.error('Error in submission:', error);
       }
@@ -289,7 +293,6 @@ const UpdateProject = () => {
                 name="projectBannerImage"
                 accept="image/*"
                 onChange={e => handleInputChange(e)}
-                required
               />
               {formData.projectBannerImage && (
                 <div className="w-32 h-[53px] object-cover object-center">
@@ -328,7 +331,6 @@ const UpdateProject = () => {
                 multiple
                 accept="image/*"
                 onChange={e => handleInputChange(e)}
-                required
               />
               <div>
                 <h4>Image Preview</h4>

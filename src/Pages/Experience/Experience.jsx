@@ -9,7 +9,7 @@ import useAuth from './../../hooks/useAuth';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { FaLocationDot } from 'react-icons/fa6';
-import './Experience.css'
+import './Experience.css';
 const Experience = () => {
   const [experienceData, setExperienceData] = useState([]);
   const { user } = useAuth();
@@ -18,7 +18,9 @@ const Experience = () => {
   useEffect(() => {
     const fetchExperienceData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/experience');
+        const response = await fetch(
+          'https://portfolio-server-sigma-mocha.vercel.app/experience'
+        );
         const data = await response.json();
         setExperienceData(data);
       } catch (error) {
@@ -49,7 +51,7 @@ const Experience = () => {
       if (result.isConfirmed) {
         try {
           const response = await fetch(
-            `http://localhost:5000/experience/delete/${id}`,
+            `https://portfolio-server-sigma-mocha.vercel.app/experience/delete/${id}`,
             {
               method: 'DELETE',
             }
@@ -81,7 +83,7 @@ const Experience = () => {
       }
     });
   };
-  if (!experienceData) {
+  if (!experienceData || experienceData.length===0) {
     return <LoadingSpinner />;
   }
   return (

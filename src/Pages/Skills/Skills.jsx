@@ -8,16 +8,17 @@ import Swal from 'sweetalert2';
 const Skills = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [skills, setSkills] = useState([]);
-  const [refresh, setRefresh] = useState(false);
+  const [refresh, setRefresh] = useState(true);
   const pagePerView = 6;
 
   useEffect(() => {
-    const fetchSkills = async () => {
-      const response = await fetch('http://localhost:5000/skills');
+    (async () => {
+      const response = await fetch(
+        'https://portfolio-server-sigma-mocha.vercel.app/skills'
+      );
       const data = await response.json();
       setSkills(data);
-    };
-    fetchSkills();
+    })();
   }, [refresh]);
 
   const totalPages = Math.ceil(skills.length / pagePerView);
@@ -42,7 +43,7 @@ const Skills = () => {
       if (result.isConfirmed) {
         try {
           const response = await fetch(
-            `http://localhost:5000/skill/delete/${id}`,
+            `https://portfolio-server-sigma-mocha.vercel.app/skill/delete/${id}`,
             {
               method: 'DELETE',
             }
@@ -74,7 +75,7 @@ const Skills = () => {
       }
     });
   };
-  if (!skills) {
+  if (!skills || skills.length === 0) {
     return <LoadingSpinner />;
   }
   return (

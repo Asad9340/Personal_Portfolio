@@ -2,17 +2,66 @@ import { useEffect, useState } from 'react';
 import Project from '../../components/Project/Project';
 import './Projects.css';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
+import Swal from 'sweetalert2';
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-
+  const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     (async () => {
-      const res = await fetch('http://localhost:5000/projects');
+      const res = await fetch(
+        'https://portfolio-server-sigma-mocha.vercel.app/projects'
+      );
       const data = await res.json();
       setProjects(data);
     })();
-  }, []);
-  if (!projects) {
+  }, [refresh]);
+  const handleSkillDelete = id => {
+    console.log(id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(async result => {
+      if (result.isConfirmed) {
+        try {
+          const response = await fetch(
+            `https://portfolio-server-sigma-mocha.vercel.app/project/delete/${id}`,
+            {
+              method: 'DELETE',
+            }
+          );
+          const data = await response.json();
+          console.log(data, 'dat');
+          if (data.deletedCount) {
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'Your Project has been deleted.',
+              icon: 'success',
+            });
+            setRefresh(prev => !prev);
+          } else {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Failed to delete the Project.',
+              icon: 'error',
+            });
+          }
+        } catch (error) {
+          console.error('Error deleting skill:', error);
+          Swal.fire({
+            title: 'Error!',
+            text: 'An error occurred while deleting the Project.',
+            icon: 'error',
+          });
+        }
+      }
+    });
+  };
+  if (!projects || !projects.length===0) {
     return <LoadingSpinner />;
   }
   return (
@@ -33,6 +82,7 @@ const Projects = () => {
               key={project._id}
               id={index + 1}
               project={project}
+              handleSkillDelete={handleSkillDelete}
             />
           ))}
         </div>

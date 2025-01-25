@@ -2,12 +2,10 @@
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
-function Project({ project, id }) {
+function Project({ project, id, handleSkillDelete }) {
   const { user } = useAuth();
   const { bannerImage, title, description, links } = project;
-  const handleSkillDelete = id => {
-    console.log(id);
-  };
+
   return (
     <div
       className={`flex gap-4 md:gap-8 m-3 items-center justify-center text-white mt-6 md:mt-10 p-4 md:p-6 rounded-3xl backdrop-blur-md bg-white/15 ${
@@ -66,7 +64,10 @@ function Project({ project, id }) {
               <span className="circle" aria-hidden="true">
                 <span className="icon arrow"></span>
               </span>
-              <Link to={`/project-details/${id}`} className="button-text">
+              <Link
+                to={`/project-details/${project._id}`}
+                className="button-text"
+              >
                 View Details
               </Link>
             </button>

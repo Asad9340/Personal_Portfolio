@@ -18,7 +18,7 @@ const UpdateSkills = () => {
     (async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/update-skills/${id}`
+          `https://portfolio-server-sigma-mocha.vercel.app/update-skills/${id}`
         );
         const data = await response.json();
         setSkill(data);
@@ -112,13 +112,16 @@ const UpdateSkills = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:5000/skill/update/${id}`, {
-        method: 'PUT',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://portfolio-server-sigma-mocha.vercel.app/skill/update/${id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         Swal.fire({
@@ -127,7 +130,7 @@ const UpdateSkills = () => {
           icon: 'success',
           confirmButtonText: 'OK',
         });
-        navigate('/')
+        navigate('/');
       } else {
         Swal.fire({
           icon: 'error',
@@ -191,10 +194,9 @@ const UpdateSkills = () => {
             )}
           </div>
 
-          
           <div className="flex items-start gap-4">
             {/* Image Input */}
-            <div className='w-full'>
+            <div className="w-full">
               <input
                 className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
                 type="file"

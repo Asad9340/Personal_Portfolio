@@ -135,13 +135,16 @@ const AddProjectsPage = () => {
 
       console.log('Project Data Submitted: ', projectData);
       try {
-        const response = await fetch('http://localhost:5000/add-project', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify(projectData),
-        });
+        const response = await fetch(
+          'https://portfolio-server-sigma-mocha.vercel.app/add-project',
+          {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(projectData),
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           if (data.insertedId) {
@@ -467,7 +470,11 @@ const AddProjectsPage = () => {
             type="submit"
             className="bg-[#010127] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 w-full mt-6 flex justify-center"
           >
-            {isSubmitted ? <ImSpinner9 className='animate-spin' /> : 'Submit Project'}
+            {isSubmitted ? (
+              <ImSpinner9 className="animate-spin" />
+            ) : (
+              'Submit Project'
+            )}
           </button>
         </div>
       </form>
