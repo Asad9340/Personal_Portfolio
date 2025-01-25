@@ -16,13 +16,13 @@ const Experience = () => {
   const [refresh, setRefresh] = useState(false);
   // Fetch data from the JSON file
   useEffect(() => {
-      (async () => {
-        const response = await fetch(
-          'https://portfolio-server-sigma-mocha.vercel.app/experience'
-        );
-        const data = await response.json();
-        setExperienceData(data);
-      })();
+    (async () => {
+      const response = await fetch(
+        'https://portfolio-server-sigma-mocha.vercel.app/experience'
+      );
+      const data = await response.json();
+      setExperienceData(data);
+    })();
   }, [refresh]);
   // Separate active and inactive classes
   const activeExperiences = experienceData.filter(

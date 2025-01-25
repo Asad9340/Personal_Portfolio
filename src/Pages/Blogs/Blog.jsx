@@ -11,13 +11,13 @@ export default function Blog() {
   const [blogPosts, setBlogPosts] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useEffect(() => {
-      (async () => {
-        const response = await fetch(
-          'https://portfolio-server-sigma-mocha.vercel.app/blogs'
-        );
-        const data = await response.json();
-        setBlogPosts(data);
-      })();
+    (async () => {
+      const response = await fetch(
+        'https://portfolio-server-sigma-mocha.vercel.app/blogs'
+      );
+      const data = await response.json();
+      setBlogPosts(data);
+    })();
   }, [refresh]);
   function handlePageChange(page) {
     setCurrentPage(page);

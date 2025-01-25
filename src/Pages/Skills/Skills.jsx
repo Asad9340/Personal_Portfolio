@@ -12,17 +12,15 @@ const Skills = () => {
   const pagePerView = 6;
 
   useEffect(() => {
-      (async () => {
-        const response = await fetch(
-          'https://portfolio-server-sigma-mocha.vercel.app/skills'
-        );
-        const data = await response.json();
-        setSkills(data);
-      })();
+    (async () => {
+      const response = await fetch(
+        'https://portfolio-server-sigma-mocha.vercel.app/skills'
+      );
+      const data = await response.json();
+      setSkills(data);
+    })();
   }, [refresh]);
-  setTimeout(() => {
-    console.log('This message is displayed after 3 seconds.');
-  }, 5000);
+
   const totalPages = Math.ceil(skills.length / pagePerView);
   const indexOfLastSkill = currentPage * pagePerView;
   const indexOfFirstSkill = indexOfLastSkill - pagePerView;
