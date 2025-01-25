@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { imgbbImageUpload } from '../../../api/utils/imageUpload';
 import Swal from 'sweetalert2';
 import { ImSpinner9 } from 'react-icons/im';
+import { useNavigate } from 'react-router-dom';
 
 const AddProjectsPage = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const AddProjectsPage = () => {
 
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const navigate = useNavigate();
   const handleInputChange = (e, fieldName, index = null) => {
     const { name, value, files } = e.target;
 
@@ -155,6 +156,7 @@ const AddProjectsPage = () => {
               confirmButtonText: 'Added',
             });
             setIsSubmitted(false);
+            navigate('/')
             // Reset form after successful submission
             setFormData({
               title: '',

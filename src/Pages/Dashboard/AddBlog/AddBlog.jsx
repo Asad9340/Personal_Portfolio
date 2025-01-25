@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { imgbbImageUpload } from '../../../api/utils/imageUpload';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { ImSpinner9 } from 'react-icons/im';
 
 const AddBlog = () => {
   const [formErrors, setFormErrors] = useState({});
@@ -9,7 +11,9 @@ const AddBlog = () => {
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
   const [slug, setSlug] = useState('');
-  const [status, setStatus] = useState('draft'); // default to draft
+  const [status, setStatus] = useState('draft');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate();
   const [categories] = useState([
     'Technology',
     'Health',
@@ -41,7 +45,7 @@ const AddBlog = () => {
     }
 
     setFormErrors({});
-
+    setIsSubmitted(true);
     const imageUrl = await imgbbImageUpload(image);
     const formData = {
       Title: title,
@@ -75,6 +79,8 @@ const AddBlog = () => {
               icon: 'success',
               confirmButtonText: 'OK',
             });
+            setIsSubmitted(false);
+            navigate('/');
             // Reset form after successful submission
             e.target.reset();
             setTitle('');
@@ -217,10 +223,14 @@ const AddBlog = () => {
 
           <div className="flex justify-center mt-8">
             <button
-              className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full"
+              className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center"
               type="submit"
             >
-              Add Blog
+              {isSubmitted ? (
+                <ImSpinner9 className="animate-spin" />
+              ) : (
+                'Add Blog'
+              )}
             </button>
           </div>
         </div>

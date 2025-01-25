@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './AddExperience.css';
 import { useNavigate, useParams } from 'react-router-dom';
+import { ImSpinner9 } from 'react-icons/im';
 
 const UpdateExperience = () => {
   const [skills, setSkills] = useState(['']);
@@ -13,6 +14,7 @@ const UpdateExperience = () => {
   const [, setFormErrors] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [experienceData, setExperienceData] = useState({
     fromDate: '',
     toDate: '',
@@ -90,7 +92,7 @@ const UpdateExperience = () => {
     }
 
     setFormErrors({});
-
+   setIsSubmitted(true);
     // If Present is selected, set the toDate to "Present"
     const finalToDate = classType === 'active' ? 'Present' : toDate;
 
@@ -137,7 +139,7 @@ const UpdateExperience = () => {
           icon: 'success',
           confirmButtonText: 'Great',
         });
-
+        setIsSubmitted(false)
         navigate('/');
       } else {
         Swal.fire({
@@ -408,9 +410,13 @@ const UpdateExperience = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full"
+          className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center"
         >
-          Update Experience
+          {isSubmitted ? (
+            <ImSpinner9 className="animate-spin" />
+          ) : (
+            'Update Experience'
+          )}
         </button>
       </form>
     </div>

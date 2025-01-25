@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { imgbbImageUpload } from '../../../api/utils/imageUpload';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { ImSpinner9 } from 'react-icons/im';
 
 const AddSkills = () => {
   const [projects, setProjects] = useState([{ name: '', description: '' }]);
@@ -9,7 +11,8 @@ const AddSkills = () => {
   const [showProjects, setShowProjects] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [image, setImage] = useState(null);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate();
   const handleAddProject = () => {
     setProjects([...projects, { name: '', description: '' }]);
   };
@@ -67,7 +70,7 @@ const AddSkills = () => {
     }
 
     setFormErrors({});
-
+    setIsSubmitted(true);
     const validProjects = projects.filter(
       project => project.name.trim() !== '' && project.description.trim() !== ''
     );
@@ -106,7 +109,8 @@ const AddSkills = () => {
               icon: 'success',
               confirmButtonText: 'Added',
             });
-            // Reset form after successful submission
+            setIsSubmitted(true);
+            navigate('/');
             e.target.reset();
             setProjects([{ name: '', description: '' }]);
             setCertifications(['']);
@@ -336,10 +340,14 @@ const AddSkills = () => {
 
           <div className="flex justify-center mt-8">
             <button
-              className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full"
+              className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center"
               type="submit"
             >
-              Add Skill
+              {isSubmitted ? (
+                <ImSpinner9 className="animate-spin" />
+              ) : (
+                'Add Project'
+              )}
             </button>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate, useParams } from 'react-router-dom';
 import { imgbbImageUpload } from '../../../api/utils/imageUpload';
+import { ImSpinner9 } from 'react-icons/im';
 
 const UpdateSkills = () => {
   const [projects, setProjects] = useState([{ name: '', description: '' }]);
@@ -13,6 +14,7 @@ const UpdateSkills = () => {
   const [skill, setSkill] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -91,7 +93,7 @@ const UpdateSkills = () => {
     }
 
     setFormErrors({});
-
+    setIsSubmitted(true);
     const validProjects = projects.filter(
       project => project.name.trim() !== '' && project.description.trim() !== ''
     );
@@ -130,6 +132,7 @@ const UpdateSkills = () => {
           icon: 'success',
           confirmButtonText: 'OK',
         });
+        setIsSubmitted(false);
         navigate('/');
       } else {
         Swal.fire({
@@ -312,9 +315,13 @@ const UpdateSkills = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-[#010127] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 mt-8"
+          className="w-full bg-[#010127] text-white px-6 py-3 rounded-lg flex justify-center hover:bg-opacity-90 mt-8"
         >
-          Save Changes
+          {isSubmitted ? (
+            <ImSpinner9 className="animate-spin" />
+          ) : (
+            'Update Project'
+          )}
         </button>
       </form>
     </div>

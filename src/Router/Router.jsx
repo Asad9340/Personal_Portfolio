@@ -13,6 +13,7 @@ import ProjectDetails from '../components/ProjectDetails/ProjectDetails';
 import UpdateProject from '../Pages/Dashboard/AddProjects/UpdateProject';
 import AddBlog from '../Pages/Dashboard/AddBlog/AddBlog';
 import UpdateBlog from '../Pages/Dashboard/AddBlog/UpdateBlog';
+import PrivateRoute from './PrivateRoute';
 
 export const router = createBrowserRouter([
   {
@@ -38,36 +39,68 @@ export const router = createBrowserRouter([
       },
       {
         path: '/add-skills',
-        element: <AddSkills />,
+        element: (
+          <PrivateRoute>
+            <AddSkills />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/update-skill/:id',
-        element: <UpdateSkills />,
+        element: (
+          <PrivateRoute>
+            <UpdateSkills />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/add-experience',
-        element: <AddExperience />,
+        element: (
+          <PrivateRoute>
+            <AddExperience />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/update-experience/:id',
-        element: <UpdateExperience />,
+        element: (
+          <PrivateRoute>
+            <UpdateExperience />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/add-projects',
-        element: <AddProjects />,
+        element: (
+          <PrivateRoute>
+            <AddProjects />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/update-project/:id',
-        element: <UpdateProject/>
+        element: (
+          <PrivateRoute>
+            <UpdateProject />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/add-blog',
-        element:<AddBlog/>
+        element: (
+          <PrivateRoute>
+            <AddBlog />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/update-blog/:id',
-        element:<UpdateBlog/>
-      }
+        element: (
+          <PrivateRoute>
+            <UpdateBlog />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
