@@ -16,19 +16,13 @@ const Experience = () => {
   const [refresh, setRefresh] = useState(false);
   // Fetch data from the JSON file
   useEffect(() => {
-    const fetchExperienceData = async () => {
-      try {
+      (async () => {
         const response = await fetch(
           'https://portfolio-server-sigma-mocha.vercel.app/experience'
         );
         const data = await response.json();
         setExperienceData(data);
-      } catch (error) {
-        console.error('Error fetching experience data:', error);
-      }
-    };
-
-    fetchExperienceData();
+      })();
   }, [refresh]);
   // Separate active and inactive classes
   const activeExperiences = experienceData.filter(
@@ -83,7 +77,7 @@ const Experience = () => {
       }
     });
   };
-  if (!experienceData || experienceData.length===0) {
+  if (!experienceData || experienceData.length === 0) {
     return <LoadingSpinner />;
   }
   return (

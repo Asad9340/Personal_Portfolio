@@ -7,13 +7,13 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useEffect(() => {
-    (async () => {
-      const res = await fetch(
-        'https://portfolio-server-sigma-mocha.vercel.app/projects'
-      );
-      const data = await res.json();
-      setProjects(data);
-    })();
+      (async () => {
+        const res = await fetch(
+          'https://portfolio-server-sigma-mocha.vercel.app/projects'
+        );
+        const data = await res.json();
+        setProjects(data);
+      })();
   }, [refresh]);
   const handleSkillDelete = id => {
     console.log(id);
@@ -61,7 +61,7 @@ const Projects = () => {
       }
     });
   };
-  if (!projects || !projects.length===0) {
+  if (!projects || projects.length===0) {
     return <LoadingSpinner />;
   }
   return (
