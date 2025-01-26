@@ -363,7 +363,9 @@ const UpdateSkills = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-[#010127] text-white px-6 py-3 rounded-lg flex justify-center hover:bg-opacity-90 mt-8"
+          className={`bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center ${
+            isSubmitted ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
         >
           {isSubmitted ? (
             <ImSpinner9 className="animate-spin" />

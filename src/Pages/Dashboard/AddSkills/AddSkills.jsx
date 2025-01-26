@@ -354,7 +354,7 @@ const AddSkills = () => {
           <div className="space-y-4">
             {tools.map((tool, index) => (
               <div key={index} className="flex items-end gap-4">
-                <div className='w-full'>
+                <div className="w-full">
                   <label
                     className="block text-sm font-medium text-gray-700"
                     htmlFor="companyName"
@@ -392,8 +392,9 @@ const AddSkills = () => {
 
           <div className="flex justify-center mt-8">
             <button
-              className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center"
-              type="submit"
+              className={`bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center ${
+                isSubmitted ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
             >
               {isSubmitted ? (
                 <ImSpinner9 className="animate-spin" />

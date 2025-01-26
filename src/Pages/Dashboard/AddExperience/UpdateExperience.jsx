@@ -92,7 +92,7 @@ const UpdateExperience = () => {
     }
 
     setFormErrors({});
-   setIsSubmitted(true);
+    setIsSubmitted(true);
     // If Present is selected, set the toDate to "Present"
     const finalToDate = classType === 'active' ? 'Present' : toDate;
 
@@ -139,7 +139,7 @@ const UpdateExperience = () => {
           icon: 'success',
           confirmButtonText: 'Great',
         });
-        setIsSubmitted(false)
+        setIsSubmitted(false);
         navigate('/');
       } else {
         Swal.fire({
@@ -410,7 +410,9 @@ const UpdateExperience = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center"
+          className={`bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center ${
+            isSubmitted ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
         >
           {isSubmitted ? (
             <ImSpinner9 className="animate-spin" />

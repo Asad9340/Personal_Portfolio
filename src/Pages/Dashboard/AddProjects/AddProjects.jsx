@@ -156,7 +156,7 @@ const AddProjectsPage = () => {
               confirmButtonText: 'Added',
             });
             setIsSubmitted(false);
-            navigate('/')
+            navigate('/');
             // Reset form after successful submission
             setFormData({
               title: '',
@@ -470,7 +470,9 @@ const AddProjectsPage = () => {
 
           <button
             type="submit"
-            className="bg-[#010127] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 w-full mt-6 flex justify-center"
+            className={`bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center ${
+              isSubmitted ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
             {isSubmitted ? (
               <ImSpinner9 className="animate-spin" />

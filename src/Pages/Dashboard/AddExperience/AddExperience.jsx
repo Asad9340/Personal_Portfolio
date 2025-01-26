@@ -426,7 +426,9 @@ setIsSubmitted(true);
 
           <button
             type="submit"
-            className="bg-[#010127] text-white flex justify-center px-8 py-4 rounded-lg hover:bg-opacity-90 w-full"
+            className={`bg-[#010127] text-white px-8 py-4 rounded-lg hover:bg-opacity-90 w-full flex justify-center ${
+              isSubmitted ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
             {isSubmitted ? (
               <ImSpinner9 className="animate-spin" />
