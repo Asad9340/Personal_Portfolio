@@ -198,7 +198,7 @@ export default function Navbar() {
               <hr />
               <Link
                 onClick={() => setIsOpen(!isOpen)}
-                to="/about-us"
+                to="/add-experience"
                 className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
               >
                 <FaUser />
@@ -207,7 +207,7 @@ export default function Navbar() {
               <hr />
               <Link
                 onClick={() => setIsOpen(!isOpen)}
-                to="/contact-us"
+                to="/add-projects"
                 className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
               >
                 <MdPermContactCalendar />
@@ -215,7 +215,7 @@ export default function Navbar() {
               </Link>
               <Link
                 onClick={() => setIsOpen(!isOpen)}
-                to="/contact-us"
+                to="/add-blog"
                 className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
               >
                 <MdPermContactCalendar />

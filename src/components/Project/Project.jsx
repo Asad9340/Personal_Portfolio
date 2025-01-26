@@ -31,8 +31,8 @@ function Project({ project, id, handleSkillDelete }) {
         </div>
         <div className="my-2 md:my-4">
           <p>
-            {description.length > 100
-              ? description.slice(0, 100) + '...'
+            {description.length > 200
+              ? description.slice(0, 200) + '...'
               : description}
           </p>
         </div>
