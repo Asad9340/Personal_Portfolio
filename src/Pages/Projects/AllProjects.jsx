@@ -3,7 +3,8 @@ import Project from '../../components/Project/Project';
 import './Projects.css';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import Swal from 'sweetalert2';
-const Projects = () => {
+import { Link } from 'react-router-dom';
+const AllProjects = () => {
   const [projects, setProjects] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useEffect(() => {
@@ -86,14 +87,14 @@ const Projects = () => {
             />
           ))}
         </div>
-        <div className='mt-6 md:mt-8 flex justify-center'>
-          <button className="allProjectBtn">
+        <div className="mt-6 md:mt-8 flex justify-center">
+          <Link className="allProjectBtn" to="/view-all-projects">
             <span className="button-content">View All Projects</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default Projects;
+export default AllProjects;

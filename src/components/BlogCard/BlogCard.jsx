@@ -11,7 +11,11 @@ const BlogCard = ({ blog, handleBlogDelete }) => {
     <div className="max-w-lg mx-auto">
       <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
         <Link to="#">
-          <img className="rounded-t-lg w-full h-52 object-cover" src={Image} alt={Title} />
+          <img
+            className="rounded-t-lg w-full h-52 object-cover"
+            src={Image}
+            alt={Title}
+          />
         </Link>
         <div className="p-5">
           <Link to="#">
@@ -25,18 +29,21 @@ const BlogCard = ({ blog, handleBlogDelete }) => {
               : 'Time not available'}
           </p>
           <p className="font-normal text-gray-700 mb-3">
-            {blog?.Content?.length > 40
-              ? `${blog.Content.slice(0, 40)}...`
+            {blog?.Content?.length > 60
+              ? `${blog.Content.slice(0, 60)}...`
               : blog?.Content}
           </p>
-          <div className="flex gap-4 justify-between items-center">
-            <div>
+          <div
+            to={`blog-details/${blog._id}`}
+            className="flex gap-4 justify-between items-center"
+          >
+            <Link to={`blog-details/${blog._id}`}>
               <button className="flex items-center gap-1 button">
                 <FaArrowRightLong />
 
                 <div className="text-xs font-semibold">Read More</div>
               </button>
-            </div>
+            </Link>
             {user && (
               <div className="flex gap-2 justify-between">
                 {/* Update Button */}

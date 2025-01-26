@@ -14,6 +14,8 @@ import UpdateProject from '../Pages/Dashboard/AddProjects/UpdateProject';
 import AddBlog from '../Pages/Dashboard/AddBlog/AddBlog';
 import UpdateBlog from '../Pages/Dashboard/AddBlog/UpdateBlog';
 import PrivateRoute from './PrivateRoute';
+import BlogDetails from '../components/BlogCard/BlogDetails';
+import AllProjects from '../Pages/Projects/AllProjects';
 
 export const router = createBrowserRouter([
   {
@@ -78,6 +80,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: '/view-all-projects',
+        element:<AllProjects />
+      },
+      {
         path: '/update-project/:id',
         element: (
           <PrivateRoute>
@@ -101,6 +107,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: '/blog-details/:id',
+        element:<BlogDetails/>
+      }
     ],
   },
 ]);
