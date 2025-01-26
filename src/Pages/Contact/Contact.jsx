@@ -38,6 +38,7 @@ const Contact = () => {
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      return;
     } else {
       setErrors({});
     }
@@ -55,25 +56,24 @@ const Contact = () => {
       );
 
       const result = await response.json();
-      console.log(result);
       if (response.ok) {
         Swal.fire({
           icon: 'success',
           title: 'Email Sent!',
           text: 'Your message has been sent successfully.',
         });
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: result.error || 'Failed to send email.',
-        });
-        setIsSubmitted(false)
+        setIsSubmitted(false);
         setFormData({
           name: '',
           email: '',
           subject: '',
           message: '',
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: result.error || 'Failed to send email.',
         });
       }
     } catch (error) {
@@ -219,7 +219,13 @@ const Contact = () => {
                       <BsFillSendFill className="arrowIcon" />
                     </div>
                   </div>
-                  <span>{isSubmitted ? <ImSpinner9 className="animate-spin" />: 'Send'}</span>
+                  <span>
+                    {isSubmitted ? (
+                      <ImSpinner9 className="animate-spin" />
+                    ) : (
+                      'Send'
+                    )}
+                  </span>
                 </button>
               </div>
             </form>
