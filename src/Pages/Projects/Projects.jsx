@@ -3,6 +3,7 @@ import Project from '../../components/Project/Project';
 import './Projects.css';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [refresh, setRefresh] = useState(false);
@@ -12,7 +13,8 @@ const Projects = () => {
         'https://portfolio-server-sigma-mocha.vercel.app/projects'
       );
       const data = await res.json();
-      setProjects(data);
+      const firstTwoProjects = data.slice(0, 2);
+      setProjects(firstTwoProjects);
     })();
   }, [refresh]);
   const handleSkillDelete = id => {
@@ -86,10 +88,10 @@ const Projects = () => {
             />
           ))}
         </div>
-        <div className='mt-6 md:mt-8 flex justify-center'>
-          <button className="allProjectBtn">
-            <span className="button-content">View All Projects</span>
-          </button>
+        <div className="mt-6 md:mt-8 flex justify-center">
+          <Link className="allProjectBtn flex justify-center" to="/view-all-projects">
+            <span className="button-content flex items-center">View All Projects</span>
+          </Link>
         </div>
       </div>
     </div>

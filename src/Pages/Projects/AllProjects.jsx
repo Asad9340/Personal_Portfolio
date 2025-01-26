@@ -3,10 +3,12 @@ import Project from '../../components/Project/Project';
 import './Projects.css';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 const AllProjects = () => {
   const [projects, setProjects] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       const res = await fetch(
@@ -87,10 +89,10 @@ const AllProjects = () => {
             />
           ))}
         </div>
-        <div className="mt-6 md:mt-8 flex justify-center">
-          <Link className="allProjectBtn" to="/view-all-projects">
-            <span className="button-content">View All Projects</span>
-          </Link>
+        <div className="flex justify-center mt-8">
+          <button onClick={() => navigate(-1)} className="backButton">
+            <FaArrowLeft className="svgIcon" />
+          </button>
         </div>
       </div>
     </div>
