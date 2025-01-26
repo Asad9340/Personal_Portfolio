@@ -143,6 +143,12 @@ const AddSkills = () => {
         <div className="space-y-4">
           <div className="w-full flex flex-col md:flex-row gap-4">
             <div className="w-full">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="companyName"
+              >
+                Skill Title
+              </label>
               <input
                 className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                   formErrors.skillTitle ? 'border-red-500' : ''
@@ -156,6 +162,12 @@ const AddSkills = () => {
               )}
             </div>
             <div className="w-full">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="companyName"
+              >
+                Experience inYear
+              </label>
               <input
                 className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                   formErrors.experience ? 'border-red-500' : ''
@@ -170,6 +182,12 @@ const AddSkills = () => {
             </div>
           </div>
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Skill Description
+            </label>
             <textarea
               className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                 formErrors.skillDescription ? 'border-red-500' : ''
@@ -186,6 +204,12 @@ const AddSkills = () => {
           </div>
 
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Skill Image Logo
+            </label>
             <input
               className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               type="file"
@@ -229,6 +253,12 @@ const AddSkills = () => {
               {projects.map((project, index) => (
                 <div key={index} className="flex flex-col gap-2">
                   <div>
+                    <label
+                      className="block text-sm font-medium text-gray-700"
+                      htmlFor="companyName"
+                    >
+                      Project Name
+                    </label>
                     <input
                       className="w-full mb-2 bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                       type="text"
@@ -238,6 +268,12 @@ const AddSkills = () => {
                         handleProjectChange(index, 'name', e.target.value)
                       }
                     />
+                    <label
+                      className="block text-sm font-medium text-gray-700"
+                      htmlFor="companyName"
+                    >
+                      Project Description
+                    </label>
                     <textarea
                       className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                       rows="2"
@@ -275,18 +311,26 @@ const AddSkills = () => {
           </h2>
           <div className="space-y-4">
             {certifications.map((cert, index) => (
-              <div key={index} className="flex items-center gap-4">
-                <input
-                  className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Certification Name"
-                  value={cert}
-                  onChange={e => {
-                    const updatedCertifications = [...certifications];
-                    updatedCertifications[index] = e.target.value;
-                    setCertifications(updatedCertifications);
-                  }}
-                />
+              <div key={index} className="flex items-end gap-4">
+                <div className="w-full">
+                  <label
+                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="companyName"
+                  >
+                    Certificate Name
+                  </label>
+                  <input
+                    className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Certification Name"
+                    value={cert}
+                    onChange={e => {
+                      const updatedCertifications = [...certifications];
+                      updatedCertifications[index] = e.target.value;
+                      setCertifications(updatedCertifications);
+                    }}
+                  />
+                </div>
                 <button
                   className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-opacity-90"
                   onClick={() => handleRemoveCertification(index)}
@@ -309,18 +353,26 @@ const AddSkills = () => {
           </h2>
           <div className="space-y-4">
             {tools.map((tool, index) => (
-              <div key={index} className="flex items-center gap-4">
-                <input
-                  className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Library or Tool Name"
-                  value={tool}
-                  onChange={e => {
-                    const updatedTools = [...tools];
-                    updatedTools[index] = e.target.value;
-                    setTools(updatedTools);
-                  }}
-                />
+              <div key={index} className="flex items-end gap-4">
+                <div className='w-full'>
+                  <label
+                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="companyName"
+                  >
+                    Tools Name
+                  </label>
+                  <input
+                    className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Library or Tool Name"
+                    value={tool}
+                    onChange={e => {
+                      const updatedTools = [...tools];
+                      updatedTools[index] = e.target.value;
+                      setTools(updatedTools);
+                    }}
+                  />
+                </div>
                 <button
                   className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-opacity-90"
                   onClick={() => handleRemoveTool(index)}

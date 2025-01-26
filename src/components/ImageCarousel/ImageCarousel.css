@@ -1,13 +1,12 @@
-
 .swiper {
   width: 100%;
   height: 400px;
 }
-.mySwiperImg{
+.mySwiperImg {
   height: 100px !important;
 }
-.mySwiperImg img{
- height: 100px !important;
+.mySwiperImg img {
+  height: 100px !important;
 }
 
 .swiper-slide {
@@ -18,14 +17,13 @@
   align-items: center;
 }
 
-.mySwiper2{
+.mySwiper2 {
   border-radius: 10px;
 }
 .swiper-slide {
   background-size: cover;
   background-position: center;
 }
-
 
 .mySwiperImg {
   height: 100px;
@@ -41,4 +39,10 @@
 
 .mySwiperImg .swiper-slide-thumb-active {
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .mySwiper2 {
+    height: 400px !important;
+  }
 }
