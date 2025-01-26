@@ -84,7 +84,7 @@ export default function Blog() {
           Blog <span className="text-[#675C9C] ">Corner</span>
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mx-3 md:mx-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mx-3 md:mx-0">
         {currentPosts.map(blog => (
           <BlogCard
             key={blog?._id}

@@ -117,7 +117,7 @@ const AddBlog = () => {
             <div className="w-full">
               <label
                 className="block text-sm font-medium text-gray-700"
-                htmlFor="companyName"
+                htmlFor="title"
               >
                 Blog Title
               </label>
@@ -140,7 +140,7 @@ const AddBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="content"
             >
               Blog Description
             </label>
@@ -162,7 +162,7 @@ const AddBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="blogCategory"
             >
               Blog Category
             </label>
@@ -188,7 +188,7 @@ const AddBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="slug"
             >
               Slug URL (Reference URL)
             </label>
@@ -210,7 +210,7 @@ const AddBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="image"
             >
               Blog Image
             </label>
@@ -229,7 +229,7 @@ const AddBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="status"
             >
               Blog Status
             </label>

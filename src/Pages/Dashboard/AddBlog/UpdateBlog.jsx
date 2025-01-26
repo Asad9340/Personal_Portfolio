@@ -133,7 +133,7 @@ const UpdateBlog = () => {
             <div className="w-full">
               <label
                 className="block text-sm font-medium text-gray-700"
-                htmlFor="companyName"
+                htmlFor="title"
               >
                 Blog Title
               </label>
@@ -156,7 +156,7 @@ const UpdateBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="content"
             >
               Blog Description
             </label>
@@ -178,7 +178,7 @@ const UpdateBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="blogCategory"
             >
               Blog Category
             </label>
@@ -204,7 +204,7 @@ const UpdateBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="slug"
             >
               Blog Slug URL
             </label>
@@ -226,7 +226,7 @@ const UpdateBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="image"
             >
               Blog Image
             </label>
@@ -256,7 +256,7 @@ const UpdateBlog = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="status"
             >
               Blog Status
             </label>

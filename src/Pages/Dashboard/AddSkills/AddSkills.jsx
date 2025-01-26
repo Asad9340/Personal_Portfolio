@@ -145,7 +145,7 @@ const AddSkills = () => {
             <div className="w-full">
               <label
                 className="block text-sm font-medium text-gray-700"
-                htmlFor="companyName"
+                htmlFor="skillTitle"
               >
                 Skill Title
               </label>
@@ -164,7 +164,7 @@ const AddSkills = () => {
             <div className="w-full">
               <label
                 className="block text-sm font-medium text-gray-700"
-                htmlFor="companyName"
+                htmlFor="experience"
               >
                 Experience inYear
               </label>
@@ -184,7 +184,7 @@ const AddSkills = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="skillDescription"
             >
               Skill Description
             </label>
@@ -206,7 +206,7 @@ const AddSkills = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="image"
             >
               Skill Logo
             </label>
@@ -255,7 +255,7 @@ const AddSkills = () => {
                   <div>
                     <label
                       className="block text-sm font-medium text-gray-700"
-                      htmlFor="companyName"
+                      htmlFor="projectName"
                     >
                       Project Name
                     </label>
@@ -315,7 +315,7 @@ const AddSkills = () => {
                 <div className="w-full">
                   <label
                     className="block text-sm font-medium text-gray-700"
-                    htmlFor="companyName"
+                    htmlFor="certificateName"
                   >
                     Certificate Name
                   </label>
@@ -357,7 +357,7 @@ const AddSkills = () => {
                 <div className="w-full">
                   <label
                     className="block text-sm font-medium text-gray-700"
-                    htmlFor="companyName"
+                    htmlFor="toolName"
                   >
                     Tools Name
                   </label>

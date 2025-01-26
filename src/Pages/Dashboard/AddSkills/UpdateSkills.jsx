@@ -160,7 +160,7 @@ const UpdateSkills = () => {
             <div className="w-full">
               <label
                 className="block text-sm font-medium text-gray-700"
-                htmlFor="companyName"
+                htmlFor="skillTitle"
               >
                 Skill Name
               </label>
@@ -178,7 +178,7 @@ const UpdateSkills = () => {
             <div className="w-full">
               <label
                 className="block text-sm font-medium text-gray-700"
-                htmlFor="companyName"
+                htmlFor="experience"
               >
                 Experience in Year
               </label>
@@ -197,7 +197,7 @@ const UpdateSkills = () => {
           <div>
             <label
               className="block text-sm font-medium text-gray-700"
-              htmlFor="companyName"
+              htmlFor="skillDescription"
             >
               Description
             </label>
@@ -220,7 +220,7 @@ const UpdateSkills = () => {
             <div className="w-full">
               <label
                 className="block text-sm font-medium text-gray-700"
-                htmlFor="companyName"
+                htmlFor="image"
               >
                 Skill Logo
               </label>
@@ -252,7 +252,7 @@ const UpdateSkills = () => {
               <div key={index}>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="companyName"
+                  htmlFor="name"
                 >
                   Project Name
                 </label>
@@ -267,7 +267,7 @@ const UpdateSkills = () => {
                 />
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="companyName"
+                  htmlFor="description"
                 >
                   Project Description
                 </label>
@@ -300,7 +300,7 @@ const UpdateSkills = () => {
               <div key={index}>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="companyName"
+                  htmlFor="CertificationName"
                 >
                   Certification Name
                 </label>
@@ -335,7 +335,7 @@ const UpdateSkills = () => {
               <div key={index}>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="companyName"
+                  htmlFor="toolName"
                 >
                   Tools Name
                 </label>
