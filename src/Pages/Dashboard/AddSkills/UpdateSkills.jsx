@@ -107,7 +107,7 @@ const UpdateSkills = () => {
       SkillTitle: skillTitle,
       SkillDescription: skillDescription,
       Experience: experience,
-      Image: imageUrl || skill.Image, // Use existing image if not updated
+      Image: imageUrl || skill.Image,
       Projects: validProjects,
       Certifications: validCertifications,
       Tools: validTools,
@@ -158,6 +158,12 @@ const UpdateSkills = () => {
         <div className="space-y-4">
           <div className="w-full flex gap-4">
             <div className="w-full">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="companyName"
+              >
+                Skill Name
+              </label>
               <input
                 className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
                 type="text"
@@ -170,6 +176,12 @@ const UpdateSkills = () => {
               )}
             </div>
             <div className="w-full">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="companyName"
+              >
+                Experience in Year
+              </label>
               <input
                 className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
                 type="number"
@@ -183,6 +195,12 @@ const UpdateSkills = () => {
             </div>
           </div>
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Description
+            </label>
             <textarea
               className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
               rows="4"
@@ -200,6 +218,12 @@ const UpdateSkills = () => {
           <div className="flex items-start gap-4">
             {/* Image Input */}
             <div className="w-full">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="companyName"
+              >
+                Skill Logo
+              </label>
               <input
                 className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
                 type="file"
@@ -226,6 +250,12 @@ const UpdateSkills = () => {
           <div className="space-y-4">
             {projects.map((project, index) => (
               <div key={index}>
+                <label
+                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="companyName"
+                >
+                  Project Name
+                </label>
                 <input
                   className="w-full mb-2 bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
                   type="text"
@@ -235,6 +265,12 @@ const UpdateSkills = () => {
                     handleProjectChange(index, 'name', e.target.value)
                   }
                 />
+                <label
+                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="companyName"
+                >
+                  Project Description
+                </label>
                 <textarea
                   className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
                   rows="2"
@@ -262,6 +298,12 @@ const UpdateSkills = () => {
           <div className="space-y-4">
             {certifications.map((cert, index) => (
               <div key={index}>
+                <label
+                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="companyName"
+                >
+                  Certification Name
+                </label>
                 <input
                   className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
                   type="text"
@@ -291,6 +333,12 @@ const UpdateSkills = () => {
           <div className="space-y-4">
             {tools.map((tool, index) => (
               <div key={index}>
+                <label
+                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="companyName"
+                >
+                  Tools Name
+                </label>
                 <input
                   className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none"
                   type="text"

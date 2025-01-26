@@ -208,7 +208,7 @@ const AddSkills = () => {
               className="block text-sm font-medium text-gray-700"
               htmlFor="companyName"
             >
-              Skill Image Logo
+              Skill Logo
             </label>
             <input
               className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"

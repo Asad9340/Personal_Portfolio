@@ -115,6 +115,12 @@ const AddBlog = () => {
         <div className="space-y-4">
           <div className="w-full flex flex-col md:flex-row gap-4">
             <div className="w-full">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="companyName"
+              >
+                Blog Title
+              </label>
               <input
                 className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                   formErrors.title ? 'border-red-500' : ''
@@ -132,6 +138,12 @@ const AddBlog = () => {
           </div>
 
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Description
+            </label>
             <textarea
               className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                 formErrors.content ? 'border-red-500' : ''
@@ -148,6 +160,12 @@ const AddBlog = () => {
           </div>
 
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Category
+            </label>
             <select
               className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                 formErrors.category ? 'border-red-500' : ''
@@ -168,6 +186,12 @@ const AddBlog = () => {
           </div>
 
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Slug URL (Reference URL)
+            </label>
             <input
               className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                 formErrors.slug ? 'border-red-500' : ''
@@ -184,6 +208,12 @@ const AddBlog = () => {
           </div>
 
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Image
+            </label>
             <input
               className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               type="file"
@@ -196,29 +226,37 @@ const AddBlog = () => {
             )}
           </div>
 
-          <div className="flex gap-4">
-            <label className="w-1/2 text-center py-2 cursor-pointer border-2 rounded-lg border-gray-200 bg-gray-100 hover:bg-indigo-100 focus-within:bg-indigo-100 transition-colors">
-              <input
-                className="hidden"
-                type="radio"
-                name="status"
-                value="Draft"
-                checked={status === 'Draft'}
-                onChange={() => setStatus('Draft')}
-              />
-              Draft
+          <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Status
             </label>
-            <label className="w-1/2 text-center py-2 cursor-pointer border-2 rounded-lg border-gray-200 bg-gray-100 hover:bg-indigo-100 focus-within:bg-indigo-100 transition-colors">
-              <input
-                className="hidden"
-                type="radio"
-                name="status"
-                value="Publish"
-                checked={status === 'Publish'}
-                onChange={() => setStatus('Publish')}
-              />
-              Publish
-            </label>
+            <div className="flex gap-4">
+              <label className="w-1/2 text-center py-2 cursor-pointer border-2 rounded-lg border-gray-200 bg-gray-100 hover:bg-indigo-100 focus-within:bg-indigo-100 transition-colors">
+                <input
+                  className="hidden"
+                  type="radio"
+                  name="status"
+                  value="Draft"
+                  checked={status === 'Draft'}
+                  onChange={() => setStatus('Draft')}
+                />
+                Draft
+              </label>
+              <label className="w-1/2 text-center py-2 cursor-pointer border-2 rounded-lg border-gray-200 bg-gray-100 hover:bg-indigo-100 focus-within:bg-indigo-100 transition-colors">
+                <input
+                  className="hidden"
+                  type="radio"
+                  name="status"
+                  value="Publish"
+                  checked={status === 'Publish'}
+                  onChange={() => setStatus('Publish')}
+                />
+                Publish
+              </label>
+            </div>
           </div>
 
           <div className="flex justify-center mt-8">

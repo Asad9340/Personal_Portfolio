@@ -33,12 +33,14 @@ const UpdateBlog = () => {
           `https://portfolio-server-sigma-mocha.vercel.app/blog/${id}`
         );
         const data = await response.json();
+        console.log(data);
         if (data) {
           setTitle(data.Title);
           setContent(data.Content);
           setCategory(data.Category);
           setSlug(data.Slug);
           setStatus(data.Status);
+          setImage(data.Image);
         }
       } catch (error) {
         console.error('Error fetching blog data:', error);
@@ -68,7 +70,9 @@ const UpdateBlog = () => {
       setFormErrors(errors);
       return;
     }
-
+    if (image instanceof File) {
+      setImage(await imgbbImageUpload(image));
+    }
     setFormErrors({});
     setIsSubmitted(true);
     const imageUrl = image ? await imgbbImageUpload(image) : image;
@@ -127,6 +131,12 @@ const UpdateBlog = () => {
         <div className="space-y-4">
           <div className="w-full flex flex-col md:flex-row gap-4">
             <div className="w-full">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="companyName"
+              >
+                Blog Title
+              </label>
               <input
                 className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                   formErrors.title ? 'border-red-500' : ''
@@ -144,6 +154,12 @@ const UpdateBlog = () => {
           </div>
 
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Description
+            </label>
             <textarea
               className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                 formErrors.content ? 'border-red-500' : ''
@@ -160,6 +176,12 @@ const UpdateBlog = () => {
           </div>
 
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Category
+            </label>
             <select
               className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                 formErrors.category ? 'border-red-500' : ''
@@ -180,6 +202,12 @@ const UpdateBlog = () => {
           </div>
 
           <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Slug URL
+            </label>
             <input
               className={`w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline ${
                 formErrors.slug ? 'border-red-500' : ''
@@ -196,41 +224,66 @@ const UpdateBlog = () => {
           </div>
 
           <div>
-            <input
-              className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              type="file"
-              name="image"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Image
+            </label>
+            <div className="flex gap-4">
+              <input
+                className="w-full bg-gray-100 text-gray-900 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                type="file"
+                name="image"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+              {image && (
+                <div className="w-32 h-[53px] object-cover object-center">
+                  <img
+                    src={image}
+                    alt="Preview"
+                    className="w-full h-full object-cover rounded-lg border"
+                  />
+                </div>
+              )}
+            </div>
             {formErrors.image && (
               <p className="text-red-500 text-sm">{formErrors.image}</p>
             )}
           </div>
 
-          <div className="flex gap-4">
-            <label className="w-1/2 text-center py-2 cursor-pointer border-2 rounded-lg border-gray-200 bg-gray-100 hover:bg-indigo-100 focus-within:bg-indigo-100 transition-colors">
-              <input
-                className="hidden"
-                type="radio"
-                name="status"
-                value="Draft"
-                checked={status === 'Draft'}
-                onChange={() => setStatus('Draft')}
-              />
-              Draft
+          <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="companyName"
+            >
+              Blog Status
             </label>
-            <label className="w-1/2 text-center py-2 cursor-pointer border-2 rounded-lg border-gray-200 bg-gray-100 hover:bg-indigo-100 focus-within:bg-indigo-100 transition-colors">
-              <input
-                className="hidden"
-                type="radio"
-                name="status"
-                value="Publish"
-                checked={status === 'Publish'}
-                onChange={() => setStatus('Publish')}
-              />
-              Publish
-            </label>
+            <div className="flex gap-4">
+              <label className="w-1/2 text-center py-2 cursor-pointer border-2 rounded-lg border-gray-200 bg-gray-100 hover:bg-indigo-100 focus-within:bg-indigo-100 transition-colors">
+                <input
+                  className="hidden"
+                  type="radio"
+                  name="status"
+                  value="Draft"
+                  checked={status === 'Draft'}
+                  onChange={() => setStatus('Draft')}
+                />
+                Draft
+              </label>
+              <label className="w-1/2 text-center py-2 cursor-pointer border-2 rounded-lg border-gray-200 bg-gray-100 hover:bg-indigo-100 focus-within:bg-indigo-100 transition-colors">
+                <input
+                  className="hidden"
+                  type="radio"
+                  name="status"
+                  value="Publish"
+                  checked={status === 'Publish'}
+                  onChange={() => setStatus('Publish')}
+                />
+                Publish
+              </label>
+            </div>
           </div>
 
           <div className="flex justify-center mt-8">
