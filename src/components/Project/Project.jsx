@@ -30,7 +30,11 @@ function Project({ project, id, handleSkillDelete }) {
           </h2>
         </div>
         <div className="my-2 md:my-4">
-          <p>{description}</p>
+          <p>
+            {description.length > 100
+              ? description.slice(0, 100) + '...'
+              : description}
+          </p>
         </div>
         <div className="flex gap-4 md:gap-5 items-center mb-2 md:mb-4">
           <a
