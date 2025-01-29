@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {  useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { ImSpinner3, ImSpinner9 } from 'react-icons/im';
 import toast from 'react-hot-toast';
@@ -54,7 +54,7 @@ const Login = () => {
     <>
       {!forgetPass ? (
         <div className="flex justify-center items-center min-h-screen">
-          <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
+          <div className="flex flex-col w-96 p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
             <div className="mb-8 text-center">
               <h1 className="my-3 text-4xl font-bold">Log In</h1>
               <p className="text-sm text-gray-400">
@@ -132,7 +132,7 @@ const Login = () => {
                 Forgot password?
               </button>
             </div>
-            <p className="px-6 text-sm text-center text-gray-400">
+            {/* <p className="px-6 text-sm text-center text-gray-400">
               Don&apos;t have an account yet?{' '}
               <Link
                 to="/sign-up"
@@ -140,7 +140,7 @@ const Login = () => {
               >
                 Sign up
               </Link>
-            </p>
+            </p> */}
           </div>
         </div>
       ) : (

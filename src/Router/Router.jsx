@@ -3,7 +3,7 @@ import Root from '../Layout/Root';
 import Home from '../Pages/Home/Home';
 import Error from '../Pages/Error/Error';
 import Login from '../Pages/Login/Login';
-import SignUp from '../Pages/SignUp/SignUp';
+// import SignUp from '../Pages/SignUp/SignUp';
 import AddSkills from '../Pages/Dashboard/AddSkills/AddSkills';
 import AddExperience from '../Pages/Dashboard/AddExperience/AddExperience';
 import UpdateSkills from '../Pages/Dashboard/AddSkills/UpdateSkills';
@@ -35,10 +35,10 @@ export const router = createBrowserRouter([
         path: '/sign-in',
         element: <Login />,
       },
-      {
-        path: '/sign-up',
-        element: <SignUp />,
-      },
+      // {
+      //   path: '/sign-up',
+      //   element: <SignUp />,
+      // },
       {
         path: '/add-skills',
         element: (
