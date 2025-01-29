@@ -185,7 +185,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className="lg:hidden">
         {isOpen && (
-          <div className="absolute rounded-xl shadow-md w-[40vw] md:w-[16vw] bg-white  text-black overflow-hidden right-2 top-16 text-sm">
+          <div className="absolute rounded-xl shadow-md w-[50vw] md:w-[25vw] bg-white  text-black overflow-hidden right-2 top-16 text-sm">
             <div className="flex flex-col cursor-pointer">
               <Link
                 onClick={() => setIsOpen(!isOpen)}
