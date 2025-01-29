@@ -37,7 +37,6 @@ const Login = () => {
   const handleResetPassword = async e => {
     e.preventDefault();
     const email = e.target.email.value;
-    console.log(email);
     try {
       await resetPassword(email);
       toast.success('Reset mail sent to your Email');
@@ -189,7 +188,7 @@ const Login = () => {
                 </button>
               </div>
             </form>
-            <p className="px-6 text-sm text-center text-gray-400">
+            <div className="px-6 text-sm text-center text-gray-400">
               Reset Successfully?
               <p
                 onClick={goToLogin}
@@ -197,7 +196,7 @@ const Login = () => {
               >
                 LogIn
               </p>
-            </p>
+            </div>
           </div>
         </div>
       )}
