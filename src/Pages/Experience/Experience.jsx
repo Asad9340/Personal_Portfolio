@@ -84,7 +84,7 @@ const Experience = () => {
     <div className="max-w-6xl mx-4 md:mx-auto">
       <div className="text-center mb-4 md:mb-8">
         <h2 className="text-3xl md:text-4xl font-semibold md:font-bold">
-          Tech <span className="text-[#675C9C]">Expertise</span>
+          Work <span className="text-[#675C9C]">Experience</span>
         </h2>
       </div>
       <div>
