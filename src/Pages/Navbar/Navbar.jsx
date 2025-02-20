@@ -7,10 +7,6 @@ import { useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { FaHome } from 'react-icons/fa';
-import { MdPermContactCalendar } from 'react-icons/md';
-import { FaUser } from 'react-icons/fa';
-import { IoLogOut } from 'react-icons/io5';
 import avatarImg from '../../assets/placeholder.jpg';
 import AdminNavbar from './AdminNavbar';
 
@@ -185,53 +181,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className="lg:hidden">
         {isOpen && (
-          <div className="absolute rounded-xl shadow-md w-[50vw] md:w-[25vw] bg-white  text-black overflow-hidden right-2 top-16 text-sm">
-            <div className="flex flex-col cursor-pointer">
-              <Link
-                onClick={() => setIsOpen(!isOpen)}
-                to="/add-skills"
-                className="px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-              >
-                <FaHome />
-                Add Skills
-              </Link>
-              <hr />
-              <Link
-                onClick={() => setIsOpen(!isOpen)}
-                to="/add-experience"
-                className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-              >
-                <FaUser />
-                Add Experience
-              </Link>
-              <hr />
-              <Link
-                onClick={() => setIsOpen(!isOpen)}
-                to="/add-projects"
-                className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-              >
-                <MdPermContactCalendar />
-                Add Projects
-              </Link>
-              <Link
-                onClick={() => setIsOpen(!isOpen)}
-                to="/add-blog"
-                className=" px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-              >
-                <MdPermContactCalendar />
-                Add Blogs
-              </Link>
-              <hr />
-
-              <Link
-                onClick={handleLogOut}
-                className="px-4 py-3 hover:bg-neutral-100 transition font-semibold flex items-center gap-2"
-              >
-                <IoLogOut />
-                Logout
-              </Link>
-            </div>
-          </div>
+         <AdminNavbar></AdminNavbar>
         )}
       </div>
       <div
