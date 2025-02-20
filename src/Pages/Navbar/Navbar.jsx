@@ -27,7 +27,6 @@ export default function Navbar() {
     'contact',
   ];
   const closeMenu = () => setIsOpen2(false);
-console.log('log')
   useEffect(() => {
     const handleClickOutside = event => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
