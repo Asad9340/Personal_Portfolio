@@ -24,3 +24,22 @@
 html {
   scroll-behavior: smooth;
 }
+
+a:hover,
+button:hover,
+.link:hover,
+.cursor-pointer:hover,
+input:hover,
+textarea:hover,
+select:hover,
+[role="button"]:hover,
+.card:hover,
+.input:hover,
+.textarea:hover {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.4);
+  transition: box-shadow 0.3s ease;
+  border-radius: 8px;
+  outline: none;
+}

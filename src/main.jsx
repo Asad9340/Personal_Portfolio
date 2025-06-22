@@ -11,12 +11,12 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <AnimatedCursor
-        innerSize={8}
-        outerSize={30}
+        innerSize={16}
+        outerSize={0}
         color="220, 20, 60"
-        outerAlpha={0.4}
+        outerAlpha={0}
         innerScale={1}
-        outerScale={1.5}
+        outerScale={1}
         showSystemCursor={false}
         trailingSpeed={6}
         clickables={[
@@ -28,12 +28,11 @@ createRoot(document.getElementById('root')).render(
           'textarea',
           'select',
           '[role="button"]',
+          '.card',
+          '.input',
+          '.textarea',
         ]}
-        outerStyle={{
-          mixBlendMode: 'difference',
-          border: '2px solid rgba(220, 20, 60, 0.6)',
-          borderRadius: '50%',
-        }}
+        outerStyle={{}}
         innerStyle={{
           backgroundColor: '#DC143C',
           mixBlendMode: 'difference',
