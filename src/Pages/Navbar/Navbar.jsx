@@ -180,7 +180,11 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className="lg:hidden">
         {isOpen && (
-         <AdminNavbar></AdminNavbar>
+          <AdminNavbar
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+            handleLogOut={handleLogOut}
+          />
         )}
       </div>
       <div
